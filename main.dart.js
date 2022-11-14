@@ -71136,7 +71136,7 @@ m=A.KQ(B.cS,A.a([p,new A.ug(A.a([new A.zr(n,b,B.b7,o,new A.aT(m),new A.de(b))],t
 o=A.a_(d,10,d)
 n=A.ar("Mobile Apps Developer",d,d,d,A.aU(d,d,d,d,d,d,d,d,d,d,d,25,d,d,B.y,d,d,!0,d,d,d,d,d,d,d,d),d,d)
 p=A.a_(d,15,d)
-k=A.bB(A.a([A.jW(B.M,d,A.nl(!1,!0,A.Zc(B.N,d,!1,d,d,!1,40,new A.dO("instagram.png",d,d),!1,d,B.b2,40),d,!0,d,d,d,B.S,d,d,d,d,d,new A.abg(),d,d,d,d,d,d,d),B.k,d,0,d,d,d,d,d,B.c7),A.bs(d,A.jW(B.M,d,A.nl(!1,!0,A.Zc(B.N,d,!1,d,d,!1,40,new A.dO("whatsapp.png",d,d),!1,d,B.b2,40),d,!0,d,d,d,B.S,d,d,d,d,d,new A.abh(),d,d,d,d,d,d,d),B.k,d,0,d,d,d,d,d,B.c7),B.k,d,d,d,d,d,new A.a6(15,0,15,0),d,d,d,d),A.jW(B.M,d,A.nl(!1,!0,A.Zc(B.N,d,!1,d,d,!1,40,new A.dO("linkedin.png",d,d),!1,d,B.b2,40),d,!0,d,d,d,B.S,d,d,d,d,d,new A.abi(),d,d,d,d,d,d,d),B.k,d,0,d,d,d,d,d,B.c7)],l),B.w,B.q,B.t)
+k=A.bB(A.a([A.jW(B.M,d,A.nl(!1,!0,A.Zc(B.N,d,!1,d,d,!1,40,new A.dO("assets/instagram.png",d,d),!1,d,B.b2,40),d,!0,d,d,d,B.S,d,d,d,d,d,new A.abg(),d,d,d,d,d,d,d),B.k,d,0,d,d,d,d,d,B.c7),A.bs(d,A.jW(B.M,d,A.nl(!1,!0,A.Zc(B.N,d,!1,d,d,!1,40,new A.dO("assets/whatsapp.png",d,d),!1,d,B.b2,40),d,!0,d,d,d,B.S,d,d,d,d,d,new A.abh(),d,d,d,d,d,d,d),B.k,d,0,d,d,d,d,d,B.c7),B.k,d,d,d,d,d,new A.a6(15,0,15,0),d,d,d,d),A.jW(B.M,d,A.nl(!1,!0,A.Zc(B.N,d,!1,d,d,!1,40,new A.dO("assets/linkedin.png",d,d),!1,d,B.b2,40),d,!0,d,d,d,B.S,d,d,d,d,d,new A.abi(),d,d,d,d,d,d,d),B.k,d,0,d,d,d,d,d,B.c7)],l),B.w,B.q,B.t)
 j=A.a_(d,20,d)
 i=A.ar("Lihat Profil Saya Lebih Lengkap",d,d,d,d,d,d)
 h=A.a_(d,d,5)
@@ -71145,7 +71145,7 @@ if(g===$){f=t.Ni
 g=e.d
 if(g===$){g=A.bz(d,A.bJ(0,0,1),d,d,e)
 g.Nh(0,!0)
-e.d=g}g=e.e=new A.aD(g,new A.ax(B.f,new A.j(0.2,-0.2),f),f.i("aD<aj.T>"))}return A.m8(B.ck,A.a([a,a0,A.Ju(A.bs(d,A.ju(A.TA(A.a([A.mO(A.e0(A.a([s,r,q,m,o,n,p,k,j,A.a_(A.jA(A.bB(A.a([i,h,A.yN(A.fR(B.C2,d,d),g,d,!0)],l),B.w,B.q,B.bc),new A.abj(a3),d),40,d)],l),B.ac,B.q,B.t),c),A.mO(A.e0(A.a([A.a_(d,20,d),A.al1(B.aC,d,A.al1(d,new A.dO("foto.jpg",d,d),d,105),110)],l),B.w,B.q,B.bc),c),A.mO(A.a_(d,20,d),"col-12")],t.ds)),d,d),B.k,d,d,d,d,a1,new A.a6(a2,0,0,0),d,d,d,d),d)],l),B.cf,d)}}
+e.d=g}g=e.e=new A.aD(g,new A.ax(B.f,new A.j(0.2,-0.2),f),f.i("aD<aj.T>"))}return A.m8(B.ck,A.a([a,a0,A.Ju(A.bs(d,A.ju(A.TA(A.a([A.mO(A.e0(A.a([s,r,q,m,o,n,p,k,j,A.a_(A.jA(A.bB(A.a([i,h,A.yN(A.fR(B.C2,d,d),g,d,!0)],l),B.w,B.q,B.bc),new A.abj(a3),d),40,d)],l),B.ac,B.q,B.t),c),A.mO(A.e0(A.a([A.a_(d,20,d),A.al1(B.aC,d,A.al1(d,new A.dO("assets/foto.jpg",d,d),d,105),110)],l),B.w,B.q,B.bc),c),A.mO(A.a_(d,20,d),"col-12")],t.ds)),d,d),B.k,d,d,d,d,a1,new A.a6(a2,0,0,0),d,d,d,d),d)],l),B.cf,d)}}
 A.abg.prototype={
 $0(){$.eR().ew("open",["https://www.instagram.com/rickyverdiyanto/"])},
 $S:0}
@@ -71279,7 +71279,7 @@ J(a){var s,r,q,p,o,n,m,l=null,k=t.F,j=A.akH(A.a([A.TA(A.a([A.mO(A.bs(l,A.bB(A.a(
 for(s=this.c,r=this.d,q=0;q<6;++q){p=A.a9(255,53,53,53)
 o=new A.bL(5,5)
 n=r[q]
-n=A.awd(l,l,new A.dO(n,l,l))
+n=A.awd(l,l,new A.dO("assets/"+n,l,l))
 m=s[q]
 n=A.e0(A.a([new A.q0(n,l,l,100,100,l,l,B.N,B.b2,!1,!1,!1,l),new A.iW(l,10,l,l),A.ar(m,l,l,l,new A.t(!0,l,l,l,l,l,25,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l),l,l)],k),B.w,B.q,B.t)
 h[q]=new A.qr(A.nl(!1,!0,new A.q9(n,new A.a6(12,12,12,12),new A.c0(p,l,l,new A.cL(o,o,o,o),l,l,B.U),250,l),l,!0,l,l,l,B.S,l,l,l,l,l,new A.a6D(),l,l,l,l,l,l,l),B.c6,0,l,l,l,l,l,B.k,B.M,l,l)}return A.e0(A.a([j,A.eY(A.Ju(A.bs(l,A.ju(A.KQ(B.Oy,h,B.aa,20,20),l,l),B.k,l,l,l,l,l,new A.a6(20,20,20,20),l,l,l,i.a.a),new A.uD(l)))],k),B.ac,B.q,B.t)}}
