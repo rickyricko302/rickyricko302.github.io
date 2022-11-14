@@ -68198,7 +68198,7 @@ this.jA()}}
 A.uP.prototype={
 af(){return new A.KJ(null,null,B.l)}}
 A.KJ.prototype={
-I(a3){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e=this,d=null,c="col-12 col-md-6",b="Ricky",a=A.ZE(0,A.mm(B.b8,d,new A.dB("bg_computer.jpg",d,d),new A.dB("dummy.jpg",d,d),B.b8,d)),a0=A.ZE(0,A.bm(d,d,B.k,A.a3(147,7,7,7),d,d,d,d,d,d,d,d,d)),a1=e.a.c?d:a3.K(t.w).f.a.b-100,a2=a3.K(t.w).f
+I(a3){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e=this,d=null,c="col-12 col-md-6",b="Ricky",a=A.ZE(0,A.mm(B.b8,d,new A.dB("assets/bg_computer.jpg",d,d),new A.dB("assets/dummy.jpg",d,d),B.b8,d)),a0=A.ZE(0,A.bm(d,d,B.k,A.a3(147,7,7,7),d,d,d,d,d,d,d,d,d)),a1=e.a.c?d:a3.K(t.w).f.a.b-100,a2=a3.K(t.w).f
 a2=a2.gj0(a2)===B.tf?20:0
 s=A.Z(d,15,d)
 r=A.ad("ABOUT & CONTACT",d,d,d,A.aN(d,d,d,d,d,d,d,d,d,d,d,25,d,d,B.x,d,d,!0,d,d,d,d,d,d,d,d),d,d)
