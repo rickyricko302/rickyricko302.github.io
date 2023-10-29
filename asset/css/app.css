@@ -1,0 +1,153 @@
+:root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --grey: #0f0f0f;
+    --young-grey: rgb(255 255 255/.5);
+    --light-grey: rgb(255 255 255/.08);
+    --green: #46F154;
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    color: var(--young-grey);
+    
+}
+
+a {
+    text-decoration: none;
+    color: var(--white) !important;
+    transition: 0.3s ease;
+}
+
+
+
+a:not(.btn):hover {
+    color: var(--young-grey) !important;
+}
+
+a.btn.btn-outline-light:hover {
+    color: #000000 !important;
+}
+
+body {
+    background-color: var(--black);
+}
+
+.bg-success {
+    background-color: var(--green) !important;
+}
+
+.text-success {
+    color: var(--green) !important;
+}
+
+.text-title {
+    font-family: 'Crimson Text', serif;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.text-white {
+    color: var(--white) !important;
+}
+
+.rky-container {
+    width: 68% !important;
+    flex-grow: 1;
+    padding-bottom: 100px;
+}
+
+.rky-icon svg path{
+    fill: var(--white);
+    transition: 0.3s ease;
+}
+
+.rky-icon:hover svg path {
+    fill: var(--young-grey);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.nav.active svg path {
+    fill: white;
+    transition: 0.3s ease;
+}
+
+.nav.active:hover svg path {
+    fill: var(--young-grey);
+}
+
+.nav svg path {
+    fill: var(--young-grey);
+    transition: 0.3s ease;
+}
+
+.nav:hover svg path {
+    fill: var(--white);
+}
+
+.nav.active .nav-text {
+    color: var(--white);
+    transition: 0.3s ease;
+}
+
+.nav.active:hover .nav-text {
+    color: var(--young-grey);
+}
+
+.nav .nav-text {
+    color: var(--young-grey);
+    transition: 0.3s ease;
+}
+
+.nav:hover .nav-text {
+    color: var(--white);
+}
+
+.border-nav {
+    border-bottom: 2px solid var(--light-grey);
+}
+
+.card {
+    background-color: var(--grey);  
+}
+
+.card:hover.can-hover {
+    background-color: var(--light-grey);
+}
+
+.footer {
+    width: 68% !important;
+}
+
+.img-profile {
+    border: 2px solid transparent;
+    animation: profile infinite ease-in-out 2.5s;
+}
+
+@keyframes profile {
+    0%{
+        border: 2px solid transparent;
+    }
+    50%{
+        border: 2px solid var(--green);
+    }
+    100%{
+        border: 2px solid transparent;
+    }
+}
+
+
+
+@media (max-width: 575.98px) {
+    .rky-container {
+        width: 100% !important;
+    }
+    .footer {
+        width: 100% !important;
+    }
+}
