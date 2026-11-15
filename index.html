@@ -1528,6 +1528,351 @@
       }
     }
 
+    /* ---------- PPT Desktop Workspace & Present/Fullscreen ---------- */
+    .ppt-bar,
+    .ppt-rail {
+      display: none;
+    }
+
+    .nav-exit {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      height: 36px;
+      padding: 0 12px;
+      margin-inline-start: 4px;
+      border-radius: 999px;
+      background: var(--input);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink);
+      transition: background .2s, border-color .2s;
+    }
+
+    .nav-exit:hover {
+      background: #fff;
+      border-color: var(--accent);
+    }
+
+    body.is-present .nav-exit {
+      display: inline-flex;
+    }
+
+    @media (min-width: 961px) {
+      body:not(.is-present) .ppt-shell {
+        display: grid;
+        grid-template-rows: 56px minmax(0, 1fr);
+        height: 100vh;
+        height: 100svh;
+        background: #EAE4D8;
+      }
+
+      body:not(.is-present) .ppt-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 0 20px;
+        background: var(--card);
+        border-bottom: 1px solid var(--border);
+        z-index: 20;
+      }
+
+      .ppt-bar-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .ppt-badge {
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        color: var(--accent);
+        font-family: var(--serif);
+        font-weight: 700;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+      }
+
+      .ppt-bar-title {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        line-height: 1.25;
+      }
+
+      .ppt-bar-title strong {
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--ink);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .ppt-bar-title span {
+        font-size: 11.5px;
+        color: var(--dim);
+        font-weight: 600;
+      }
+
+      .ppt-bar-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex: 0 0 auto;
+      }
+
+      .ppt-step-group {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 6px;
+        border-radius: 999px;
+        background: var(--input);
+        border: 1px solid var(--border);
+      }
+
+      .ppt-icon-btn {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        background: #fff;
+        border: 1px solid var(--border);
+        transition: border-color .2s, opacity .2s;
+      }
+
+      .ppt-icon-btn:hover:not(:disabled) {
+        border-color: var(--accent);
+      }
+
+      .ppt-icon-btn:disabled {
+        opacity: .35;
+        cursor: default;
+      }
+
+      .ppt-counter {
+        font-size: 12px;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        color: var(--muted);
+        padding: 0 6px;
+      }
+
+      .ppt-present-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        height: 38px;
+        padding: 0 16px;
+        border-radius: 999px;
+        background: var(--ink);
+        color: #F8F6F2;
+        font-size: 13px;
+        font-weight: 700;
+        transition: opacity .2s, transform .2s;
+      }
+
+      .ppt-present-btn:hover {
+        opacity: .92;
+        transform: translateY(-1px);
+      }
+
+      body:not(.is-present) .ppt-workspace {
+        display: grid;
+        grid-template-columns: 248px minmax(0, 1fr);
+        min-height: 0;
+      }
+
+      body:not(.is-present) .ppt-rail {
+        display: block;
+        background: #F4F0E7;
+        border-right: 1px solid var(--border);
+        overflow-y: auto;
+        padding: 14px 12px 24px;
+        overscroll-behavior: contain;
+        scrollbar-gutter: stable;
+      }
+
+      .ppt-rail-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .ppt-thumb {
+        display: grid;
+        grid-template-columns: 22px minmax(0, 1fr);
+        gap: 8px;
+        align-items: start;
+        width: 100%;
+        padding: 7px 8px 8px 6px;
+        border-radius: 10px;
+        border: 1px solid transparent;
+        text-align: left;
+        transition: background .18s, border-color .18s;
+      }
+
+      .ppt-thumb:hover {
+        background: rgba(255, 255, 255, .65);
+        border-color: var(--border);
+      }
+
+      .ppt-thumb.active {
+        background: rgba(154, 110, 36, .12);
+        border-color: rgba(154, 110, 36, .42);
+      }
+
+      .ppt-thumb-num {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--dim);
+        font-variant-numeric: tabular-nums;
+        padding-top: 2px;
+      }
+
+      .ppt-thumb.active .ppt-thumb-num {
+        color: var(--accent);
+      }
+
+      .ppt-thumb-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        border-radius: 7px;
+        overflow: hidden;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        box-shadow: 0 4px 12px -8px rgba(27, 27, 32, .35);
+      }
+
+      .ppt-thumb.active .ppt-thumb-frame {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 2px rgba(154, 110, 36, .24);
+      }
+
+      .ppt-thumb-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1200px;
+        height: 750px;
+        transform-origin: top left;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .ppt-thumb-canvas .slide {
+        width: 1200px;
+        height: 750px;
+        flex: none;
+        overflow: hidden;
+      }
+
+      .ppt-thumb-canvas .slide-inner {
+        width: min(1140px, 100%);
+        padding: 36px 44px;
+      }
+
+      .ppt-thumb-title {
+        grid-column: 2;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--muted);
+        margin-top: 2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .ppt-thumb.active .ppt-thumb-title {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      body:not(.is-present) .ppt-stage-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(14px, 2vw, 28px);
+        min-width: 0;
+        min-height: 0;
+        overflow: hidden;
+      }
+
+      body:not(.is-present) .deck {
+        width: min(100%, calc((100svh - 56px - 44px) * 1.6));
+        height: auto;
+        max-height: 100%;
+        aspect-ratio: 16 / 10;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: 0 28px 60px -36px rgba(27, 27, 32, .38), 0 4px 16px -8px rgba(27, 27, 32, .12);
+      }
+
+      body:not(.is-present) .slide {
+        height: 100%;
+        container: slide / inline-size;
+      }
+
+      body:not(.is-present) .slide-inner {
+        width: 100%;
+        padding: clamp(20px, 3.2cqi, 44px);
+      }
+
+      body:not(.is-present) .slide-top {
+        margin-bottom: clamp(12px, 2.2cqi, 28px);
+      }
+
+      body:not(.is-present) .nav {
+        display: none;
+      }
+    }
+
+    @container slide (max-width: 980px) {
+      h2.title {
+        font-size: clamp(24px, 4.2cqi, 44px);
+      }
+
+      .subtitle {
+        font-size: clamp(13px, 1.5cqi, 17px);
+      }
+
+      .cover h1 {
+        font-size: clamp(34px, 6.4cqi, 70px);
+      }
+
+      .role {
+        font-size: clamp(17px, 2.2cqi, 26px);
+      }
+
+      .tagline,
+      .about p {
+        font-size: clamp(13px, 1.4cqi, 17px);
+      }
+
+      .stat b {
+        font-size: clamp(24px, 3.6cqi, 40px);
+      }
+
+      .contact h2 {
+        font-size: clamp(28px, 4.5cqi, 50px);
+      }
+    }
+
     @media (prefers-reduced-motion:reduce) {
       .deck {
         scroll-behavior: auto
@@ -1545,7 +1890,38 @@
 
 <body>
 
-  <main class="deck" id="deck">
+  <div class="ppt-shell" id="pptShell">
+    <header class="ppt-bar">
+      <div class="ppt-bar-brand">
+        <span class="ppt-badge" aria-hidden="true">RV</span>
+        <div class="ppt-bar-title">
+          <strong>Ricky Verdiyanto — Portofolio</strong>
+          <span id="pptSlideLabel">Slide 1 dari 9 · Cover</span>
+        </div>
+      </div>
+      <div class="ppt-bar-actions">
+        <div class="ppt-step-group" role="group" aria-label="Pindah slide">
+          <button type="button" class="ppt-icon-btn" id="barPrev" aria-label="Slide sebelumnya">←</button>
+          <span class="ppt-counter" id="pptCounter">01 / 09</span>
+          <button type="button" class="ppt-icon-btn" id="barNext" aria-label="Slide berikutnya">→</button>
+        </div>
+        <button type="button" class="ppt-present-btn" id="presentBtn" aria-label="Mulai presentasi layar penuh">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+          </svg>
+          <span>Presentasi</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="ppt-workspace">
+      <aside class="ppt-rail" aria-label="Daftar slide">
+        <div class="ppt-rail-list" id="pptRailList"></div>
+      </aside>
+
+      <div class="ppt-stage-wrap">
+        <main class="deck" id="deck">
 
     <!-- ============ SLIDE 1 — COVER ============ -->
     <section class="slide" aria-label="Slide 1 — Cover">
@@ -1938,7 +2314,10 @@
       </div>
     </section>
 
-  </main>
+        </main>
+      </div>
+    </div>
+  </div>
 
   <!-- ============ GALLERY MODAL (<dialog>) ============ -->
   <dialog class="pos-modal" id="posModal" closedby="any" aria-labelledby="posTitle">
@@ -1981,6 +2360,7 @@
     <button type="button" class="arrow prev" id="prev" aria-label="Slide sebelumnya">←</button>
     <div class="dots" id="dots"></div>
     <button type="button" class="arrow next" id="next" aria-label="Slide berikutnya">→</button>
+    <button type="button" class="nav-exit" id="exitPresentBtn" aria-label="Keluar dari mode presentasi">Keluar</button>
   </nav>
 
   <script>
@@ -1992,7 +2372,26 @@
     const dotsWrap = document.getElementById("dots");
     const prevBtn = document.getElementById("prev");
     const nextBtn = document.getElementById("next");
+    const barPrevBtn = document.getElementById("barPrev");
+    const barNextBtn = document.getElementById("barNext");
+    const pptCounter = document.getElementById("pptCounter");
+    const pptSlideLabel = document.getElementById("pptSlideLabel");
+    const pptRailList = document.getElementById("pptRailList");
+    const presentBtn = document.getElementById("presentBtn");
+    const exitPresentBtn = document.getElementById("exitPresentBtn");
     let index = 0;
+
+    const SLIDE_NAMES = [
+      "Cover",
+      "Tentang Saya",
+      "Pengalaman",
+      "Proyek Unggulan",
+      "Proyek Mobile & Toko",
+      "Sistem Web & CMS",
+      "Keahlian",
+      "Proyek Seru",
+      "Kontak"
+    ];
 
     /* dots */
     slides.forEach((_, i) => {
@@ -2004,14 +2403,87 @@
     });
     const dotEls = Array.from(dotsWrap.children);
 
+    /* sidebar rectangular slide previews */
+    const thumbScaleTargets = [];
+    slides.forEach((slide, i) => {
+      const numStr = String(i + 1).padStart(2, "0");
+      const title = SLIDE_NAMES[i] || ("Slide " + (i + 1));
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "ppt-thumb";
+      btn.setAttribute("aria-label", "Pilih slide " + numStr + " — " + title);
+      btn.addEventListener("click", () => goTo(i));
+
+      const num = document.createElement("span");
+      num.className = "ppt-thumb-num";
+      num.textContent = numStr;
+
+      const frame = document.createElement("span");
+      frame.className = "ppt-thumb-frame";
+      frame.setAttribute("aria-hidden", "true");
+
+      const canvas = document.createElement("span");
+      canvas.className = "ppt-thumb-canvas";
+      canvas.setAttribute("inert", "");
+
+      const clone = slide.cloneNode(true);
+      clone.querySelectorAll("[id]").forEach((el) => el.removeAttribute("id"));
+      clone.querySelectorAll("[for]").forEach((el) => el.removeAttribute("for"));
+      clone.querySelectorAll("[name]").forEach((el) => el.removeAttribute("name"));
+      clone.querySelectorAll("img").forEach((img) => img.removeAttribute("loading"));
+      canvas.appendChild(clone);
+      frame.appendChild(canvas);
+
+      const label = document.createElement("span");
+      label.className = "ppt-thumb-title";
+      label.textContent = title;
+
+      btn.append(num, frame, label);
+      pptRailList.appendChild(btn);
+      thumbScaleTargets.push({ frame, canvas });
+    });
+    const thumbEls = Array.from(pptRailList.children);
+
+    function scaleThumbnails() {
+      thumbScaleTargets.forEach(({ frame, canvas }) => {
+        const w = frame.clientWidth;
+        if (w > 0) canvas.style.transform = "scale(" + (w / 1200) + ")";
+      });
+    }
+    if ("ResizeObserver" in window) {
+      const railObserver = new ResizeObserver(scaleThumbnails);
+      railObserver.observe(pptRailList);
+    }
+    scaleThumbnails();
+
     function updateUI() {
       dotEls.forEach((d, i) => {
         d.classList.toggle("active", i === index);
         if (i === index) d.setAttribute("aria-current", "step");
         else d.removeAttribute("aria-current");
       });
-      prevBtn.disabled = index === 0;
-      nextBtn.disabled = index === slides.length - 1;
+      thumbEls.forEach((t, i) => {
+        const active = i === index;
+        t.classList.toggle("active", active);
+        if (active) {
+          t.setAttribute("aria-current", "step");
+          t.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        } else {
+          t.removeAttribute("aria-current");
+        }
+      });
+      const atStart = index === 0;
+      const atEnd = index === slides.length - 1;
+      prevBtn.disabled = atStart;
+      nextBtn.disabled = atEnd;
+      barPrevBtn.disabled = atStart;
+      barNextBtn.disabled = atEnd;
+
+      const cur = String(index + 1).padStart(2, "0");
+      const tot = String(slides.length).padStart(2, "0");
+      pptCounter.textContent = cur + " / " + tot;
+      pptSlideLabel.textContent = "Slide " + (index + 1) + " dari " + slides.length + " · " + (SLIDE_NAMES[index] || "");
     }
 
     let programmaticScrollUntil = 0;
@@ -2070,11 +2542,60 @@
 
     prevBtn.addEventListener("click", () => goTo(index - 1));
     nextBtn.addEventListener("click", () => goTo(index + 1));
+    barPrevBtn.addEventListener("click", () => goTo(index - 1));
+    barNextBtn.addEventListener("click", () => goTo(index + 1));
+
+    /* ===== Mode Presentasi / Fullscreen ===== */
+    function alignDeck() {
+      deck.style.scrollBehavior = "auto";
+      deck.scrollLeft = index * deck.clientWidth;
+      deck.style.scrollBehavior = "";
+    }
+
+    async function enterPresent() {
+      document.body.classList.add("is-present");
+      requestAnimationFrame(() => {
+        alignDeck();
+      });
+      if (document.documentElement.requestFullscreen && !document.fullscreenElement) {
+        try {
+          await document.documentElement.requestFullscreen();
+        } catch {
+          /* Tetap lanjutkan mode presentasi layar penuh CSS jika Fullscreen API dibatasi */
+        }
+      }
+    }
+
+    async function exitPresent() {
+      document.body.classList.remove("is-present");
+      if (document.fullscreenElement && document.exitFullscreen) {
+        try {
+          await document.exitFullscreen();
+        } catch { }
+      }
+      requestAnimationFrame(() => {
+        scaleThumbnails();
+        alignDeck();
+      });
+    }
+
+    presentBtn.addEventListener("click", enterPresent);
+    exitPresentBtn.addEventListener("click", exitPresent);
+
+    document.addEventListener("fullscreenchange", () => {
+      if (!document.fullscreenElement && document.body.classList.contains("is-present")) {
+        document.body.classList.remove("is-present");
+      }
+      requestAnimationFrame(() => {
+        scaleThumbnails();
+        alignDeck();
+      });
+    });
 
     const galleryModal = document.getElementById("posModal");
     const galleryLightbox = document.getElementById("posLightbox");
 
-    /* keyboard (navigasi horizontal slide; panah atas/bawah tetap untuk scroll vertikal di dalam slide) */
+    /* keyboard (navigasi horizontal slide; F untuk presentasi; Esc keluar presentasi) */
     window.addEventListener("keydown", (e) => {
       if (galleryModal.open || galleryLightbox.open) return;
       if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) return;
@@ -2082,14 +2603,27 @@
       if (e.key === "ArrowLeft") { e.preventDefault(); goTo(index - 1); }
       if (e.key === "Home") { e.preventDefault(); goTo(0); }
       if (e.key === "End") { e.preventDefault(); goTo(slides.length - 1); }
+      if ((e.key === "f" || e.key === "F") && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        e.preventDefault();
+        document.body.classList.contains("is-present") ? exitPresent() : enterPresent();
+      }
+      if (e.key === "Escape" && document.body.classList.contains("is-present") && !document.fullscreenElement) {
+        e.preventDefault();
+        exitPresent();
+      }
     });
 
-    /* keep alignment on resize */
-    let rTimer;
-    window.addEventListener("resize", () => {
-      clearTimeout(rTimer);
-      rTimer = setTimeout(() => { deck.scrollLeft = index * deck.clientWidth; }, 120);
-    });
+    /* keep alignment on resize & container mode switches */
+    if ("ResizeObserver" in window) {
+      const deckObserver = new ResizeObserver(() => alignDeck());
+      deckObserver.observe(deck);
+    } else {
+      let rTimer;
+      window.addEventListener("resize", () => {
+        clearTimeout(rTimer);
+        rTimer = setTimeout(alignDeck, 120);
+      });
+    }
 
     updateUI();
 
