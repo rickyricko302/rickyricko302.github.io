@@ -1,807 +1,2391 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ricky Verdiyanto — Portofolio (Slide Deck)</title>
-<meta name="description" content="Portofolio Ricky Verdiyanto — pengembang aplikasi mobile & web. Versi slide." />
-<style>
-  :root{
-    --bg:#F8F6F2;
-    --card:#FFFFFF;
-    --border:#E7E2D8;
-    --ink:#1B1B20;
-    --muted:#62626B;
-    --dim:#9A968C;
-    --accent:#A97C2F;
-    --input:#FAF8F4;
-    --serif:"Georgia","Times New Roman",serif;
-    --sans:"Helvetica Neue",Helvetica,Arial,system-ui,-apple-system,"Segoe UI",sans-serif;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{
-    background:var(--bg);color:var(--ink);font-family:var(--sans);
-    line-height:1.55;-webkit-font-smoothing:antialiased;overflow:hidden;
-  }
-  a{color:inherit;text-decoration:none}
-  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
-  img{display:block;max-width:100%}
-  .eyebrow{font-size:12px;font-weight:700;letter-spacing:3px;color:var(--accent);text-transform:uppercase}
-  .display{font-family:var(--serif);font-weight:700;line-height:1.05;letter-spacing:-.02em}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ricky Verdiyanto — Portofolio Mobile &amp; Web Developer</title>
+  <meta name="description"
+    content="Portofolio Ricky Verdiyanto — Mobile &amp; Web Developer berpengalaman 4+ tahun membangun aplikasi Flutter, Laravel, Java, dan WordPress." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://porto.rickyv.my.id/" />
+  <meta property="og:title" content="Ricky Verdiyanto — Portofolio Mobile &amp; Web Developer" />
+  <meta property="og:description"
+    content="Mobile &amp; Web Developer berpengalaman 4+ tahun dalam pengembangan Flutter (offline-first, Clean Architecture), Laravel, Java Android, dan WordPress." />
+  <meta property="og:image" content="assets/images/pos/pos-kasir.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23F8F6F2'/%3E%3Ccircle cx='32' cy='32' r='26' fill='none' stroke='%23A97C2F' stroke-width='2'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='26' fill='%23A97C2F'%3ERV%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --bg: #F8F6F2;
+      --card: #FFFFFF;
+      --border: #E7E2D8;
+      --ink: #1B1B20;
+      --muted: #5A5A63;
+      --dim: #6B675E;
+      --accent: #9A6E24;
+      --input: #FAF8F4;
+      --error: #B22A2A;
+      --serif: "Georgia", "Times New Roman", serif;
+      --sans: "Helvetica Neue", Helvetica, Arial, system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
 
-  /* ---------- Deck ---------- */
-  .deck{
-    display:flex;height:100vh;height:100svh;
-    overflow-x:auto;overflow-y:hidden;
-    scroll-snap-type:x mandatory;scroll-behavior:smooth;
-    scrollbar-width:none;
-  }
-  .deck::-webkit-scrollbar{display:none}
-  .slide{
-    flex:0 0 100%;height:100vh;height:100svh;scroll-snap-align:start;
-    overflow-y:auto;overflow-x:hidden;display:flex;background:var(--bg);
-  }
-  .slide-inner{
-    width:min(1180px,100%);margin:auto;
-    padding:clamp(22px,4vw,56px);
-    padding-bottom:clamp(92px,12vh,120px);
-  }
-  .slide-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:clamp(18px,3.4vh,40px)}
-  .num{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--dim)}
-  h2.title{font-family:var(--serif);font-weight:700;font-size:clamp(30px,4.6vw,56px);line-height:1.08;letter-spacing:-.02em}
-  .subtitle{color:var(--muted);font-size:clamp(15px,1.7vw,19px);margin-top:.5em}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
 
-  /* ---------- 1. Cover ---------- */
-  .cover{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(20px,4vw,64px);align-items:center}
-  .cover h1{font-family:var(--serif);font-weight:700;font-size:clamp(40px,7.4vw,86px);line-height:1.02;letter-spacing:-.025em;margin:14px 0 10px}
-  .role{font-size:clamp(19px,2.6vw,32px);font-weight:700;color:var(--accent);letter-spacing:.4px}
-  .tagline{color:var(--muted);font-size:clamp(15px,1.6vw,20px);line-height:1.6;max-width:620px;margin-top:16px}
-  .hint{margin-top:clamp(22px,4vh,52px);color:var(--accent);font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
-  .visual{position:relative;width:min(100%,380px);aspect-ratio:1;justify-self:center}
-  .orb{position:absolute;inset:0;border-radius:50%;background:linear-gradient(160deg,#EFE9DD,#DDD4C4);border:1px solid #E6DFD2}
-  .ring{position:absolute;inset:9%;border-radius:50%;border:1px solid rgba(169,124,47,.5)}
-  .mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;color:var(--accent);font-size:clamp(90px,22vw,200px);line-height:1;padding-top:2%}
-  .tech-pill{position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);background:var(--card);border:1px solid var(--border);border-radius:999px;padding:9px 18px;font-size:12px;font-weight:700;letter-spacing:.4px;white-space:nowrap}
+    html,
+    body {
+      height: 100%
+    }
 
-  /* ---------- 2. About ---------- */
-  .about{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(22px,4vw,64px);align-items:start}
-  .about p{color:var(--muted);font-size:clamp(15px,1.5vw,19px);line-height:1.7;margin-top:18px;max-width:640px}
-  .stats{display:flex;gap:clamp(24px,5vw,64px);margin-top:clamp(22px,4vh,48px);flex-wrap:wrap}
-  .stat b{font-family:var(--serif);font-size:clamp(30px,4vw,48px);display:block;line-height:1}
-  .stat span{color:var(--muted);font-size:13px}
-  .focus{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:clamp(22px,3vw,36px)}
-  .focus h3{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);margin:6px 0 18px}
-  .focus ul{list-style:none;display:flex;flex-direction:column;gap:14px}
-  .focus li{display:flex;gap:12px;font-size:clamp(14px,1.4vw,16px);line-height:1.4}
-  .focus li b{color:var(--accent);font-variant-numeric:tabular-nums;font-weight:700}
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
 
-  /* ---------- 3. Experience ---------- */
-  .exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.4vw,24px);margin-top:clamp(20px,3.4vh,40px)}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:clamp(20px,3vw,32px)}
-  .card h3{font-size:clamp(17px,1.9vw,24px);line-height:1.25}
-  .card .company{color:var(--accent);font-weight:700;font-size:clamp(14px,1.4vw,16px);margin-top:6px}
-  .card .period{color:var(--dim);font-size:13px;margin-top:4px}
-  .card p{color:var(--muted);font-size:clamp(14px,1.4vw,16px);line-height:1.6;margin-top:14px}
+    a {
+      color: inherit;
+      text-decoration: none
+    }
 
-  /* ---------- 4/5. Projects ---------- */
-  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,22px);margin-top:clamp(16px,2.8vh,34px)}
-  .proj{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:8px}
-  .thumb{aspect-ratio:16/10;border-radius:9px;overflow:hidden;background:#F4F1EA}
-  .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center}
-  .proj h3{font-size:clamp(13px,1.4vw,16px);line-height:1.25}
-  .proj:not(.proj-featured) p{color:var(--muted);font-size:clamp(11.5px,1.15vw,13px);line-height:1.5;flex:1 1 auto;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
-  .proj .tech{font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--accent);text-transform:uppercase}
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: inherit
+    }
 
-  /* ---------- 6. Skills ---------- */
-  .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,20px);margin-top:clamp(18px,3vh,34px)}
-  .skill{display:flex;align-items:center;gap:clamp(10px,1.4vw,14px);background:var(--card);border:1px solid var(--border);border-radius:14px;padding:clamp(12px,1.6vw,18px)}
-  .ic{width:clamp(40px,5vw,56px);aspect-ratio:1;border-radius:12px;overflow:hidden;background:#F4F1EA;flex:0 0 auto;display:flex;align-items:center;justify-content:center}
-  .ic img{width:100%;height:100%;object-fit:contain;padding:6px}
-  .skill b{font-size:clamp(13px,1.4vw,16px)}
+    img {
+      display: block;
+      max-width: 100%
+    }
 
-  /* ---------- 7. Fun ---------- */
-  .fun-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.4vw,24px);margin-top:clamp(18px,3vh,34px)}
-  .fun{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px}
-  .fun-video{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;margin-bottom:12px;background:#000}
-  .fun-video .fun-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;cursor:pointer;transition:transform .4s,opacity .3s}
-  .fun-video .fun-poster:hover,.fun-video .fun-poster:focus-visible{transform:scale(1.03);outline:none}
-  .fun-video iframe{position:absolute;top:0;left:0;width:150%;height:150%;border:0;display:block;transform:scale(.6667);transform-origin:top left}
-  .fun h3{font-size:clamp(18px,2vw,24px)}
-  .fun p{color:var(--muted);font-size:clamp(14px,1.4vw,16px);line-height:1.55;margin-top:6px}
-  .fun .tech{color:var(--accent);font-weight:700;font-size:13px;margin-top:10px}
+    :where(a:any-link, button, input, textarea, [tabindex]):focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
 
-  /* ---------- 8. Contact ---------- */
-  .contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,4vw,64px);align-items:center}
-  .contact h2{font-family:var(--serif);font-weight:700;font-size:clamp(34px,5vw,60px);line-height:1.06;letter-spacing:-.02em}
-  .contact .sub{color:var(--muted);font-size:clamp(15px,1.6vw,20px);margin-top:16px;max-width:460px}
-  .contact .note{color:var(--dim);font-size:14px;margin-top:18px;max-width:430px;line-height:1.55}
-  form.mail{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:clamp(20px,3vw,34px);display:flex;flex-direction:column;gap:14px}
-  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .field{display:flex;flex-direction:column;gap:7px}
-  .field label{font-size:13px;font-weight:700}
-  .field input,.field textarea{width:100%;background:var(--input);border:1px solid var(--border);border-radius:10px;padding:13px 15px;font-family:inherit;font-size:15px;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s}
-  .field textarea{min-height:104px;resize:vertical;line-height:1.5}
-  .field input::placeholder,.field textarea::placeholder{color:#A39E94}
-  .field input:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(169,124,47,.14)}
-  .submit{background:var(--ink);color:#F8F6F2;font-size:16px;font-weight:700;padding:15px 22px;border-radius:10px;letter-spacing:.3px;transition:transform .2s,opacity .2s}
-  .submit:hover{transform:translateY(-1px);opacity:.93}
-  .form-status{font-size:13px;color:var(--accent);text-align:center;min-height:16px}
-  .form-note{font-size:12px;color:var(--dim);text-align:center}
+    .visually-hidden:where(:not(:focus-within, :active)) {
+      position: absolute !important;
+      clip-path: inset(50%) !important;
+      overflow: hidden !important;
+      width: 1px !important;
+      height: 1px !important;
+      margin: -1px !important;
+      padding: 0 !important;
+      border: 0 !important;
+      white-space: nowrap !important;
+    }
 
-  /* ---------- Nav ---------- */
-  .nav{
-    position:fixed;left:50%;bottom:clamp(12px,2.6vh,24px);transform:translateX(-50%);
-    display:flex;align-items:center;gap:14px;z-index:60;
-    background:rgba(255,255,255,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-    border:1px solid var(--border);border-radius:999px;padding:8px 12px;
-    box-shadow:0 18px 40px -26px rgba(27,27,32,.55);
-  }
-  .nav button.arrow{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;transition:transform .2s,opacity .2s}
-  .nav button.prev{background:#fff;border:1px solid var(--border);color:var(--ink)}
-  .nav button.next{background:var(--ink);color:#F8F6F2}
-  .nav button.arrow:hover{transform:translateY(-1px);opacity:.9}
-  .nav button.arrow:disabled{opacity:.35;cursor:default;transform:none}
-  .dots{display:flex;gap:7px;align-items:center}
-  .dots button{width:8px;height:8px;border-radius:999px;background:#D8D1C4;padding:0;transition:width .3s,background .3s}
-  .dots button.active{width:22px;background:var(--accent)}
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--accent);
+      text-transform: uppercase
+    }
 
-  /* ---------- Featured project (POS) ---------- */
-  .proj-featured{
-    grid-column:1/-1;display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(16px,2.4vw,30px);
-    padding:clamp(12px,1.6vw,18px);cursor:pointer;position:relative;overflow:hidden;
-    transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s;
-  }
-  .proj-featured:hover{transform:translateY(-3px);box-shadow:0 26px 54px -32px rgba(27,27,32,.55);border-color:rgba(169,124,47,.55)}
-  .proj-featured:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-  .proj-featured-media{position:relative;border-radius:11px;overflow:hidden;background:#F4F1EA;aspect-ratio:16/10}
-  .proj-featured-media img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-  .proj-featured:hover .proj-featured-media img{transform:scale(1.04)}
-  .proj-badge{position:absolute;top:10px;left:10px;background:var(--accent);color:#fff;font-size:10px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;padding:5px 10px;border-radius:999px;box-shadow:0 6px 16px -8px rgba(0,0,0,.5)}
-  .proj-featured-body{display:flex;flex-direction:column;justify-content:center;padding:clamp(4px,1vw,10px) clamp(2px,1vw,8px)}
-  .proj-featured-eyebrow{font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent)}
-  .proj-featured-body h3{font-family:var(--serif);font-size:clamp(22px,2.6vw,32px);line-height:1.1;margin:8px 0 0}
-  .proj-featured-body p{color:var(--muted);font-size:clamp(13px,1.35vw,15px);line-height:1.6;margin-top:10px;max-width:46ch}
-  .proj-featured-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-  .proj-featured-meta span{font-size:11px;font-weight:700;color:var(--muted);background:var(--input);border:1px solid var(--border);border-radius:999px;padding:5px 11px}
-  .proj-cta{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:13px;font-weight:800;color:var(--ink);letter-spacing:.2px}
-  .proj-cta span{transition:transform .3s}
-  .proj-featured:hover .proj-cta span{transform:translateX(5px)}
+    .display {
+      font-family: var(--serif);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -.02em
+    }
 
-  /* ---------- POS gallery modal ---------- */
-  .pos-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:clamp(10px,2.4vw,34px);opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s}
-  .pos-modal.open{opacity:1;visibility:visible}
-  .pos-modal-backdrop{position:absolute;inset:0;background:rgba(20,18,16,.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-  .pos-modal-panel{
-    position:relative;width:min(1180px,100%);height:min(900px,calc(100vh - 2 * clamp(10px,2.4vw,34px)));max-height:100%;display:flex;flex-direction:column;
-    background:var(--bg);border:1px solid var(--border);border-radius:22px;overflow:hidden;
-    box-shadow:0 40px 90px -40px rgba(0,0,0,.6);
-    transform:translateY(18px) scale(.985);opacity:0;transition:transform .4s cubic-bezier(.2,.7,.2,1),opacity .4s;
-  }
-  .pos-modal.open .pos-modal-panel{transform:none;opacity:1}
-  .pos-modal-head{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:clamp(16px,2.4vw,26px) clamp(18px,2.6vw,30px);border-bottom:1px solid var(--border);background:linear-gradient(180deg,#fff, #FBF9F5)}
-  .pos-brand{display:flex;align-items:center;gap:14px;min-width:0}
-  .pos-logo{flex:0 0 auto;width:52px;height:52px;border-radius:14px;background:#B20403;color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:17px;letter-spacing:.5px;box-shadow:0 10px 22px -12px rgba(178,4,3,.8)}
-  .pos-brand h2{font-family:var(--serif);font-size:clamp(19px,2.2vw,26px);line-height:1.1}
-  .pos-brand p{color:var(--muted);font-size:12.5px;margin-top:3px}
-  .pos-close{flex:0 0 auto;width:42px;height:42px;border-radius:50%;background:#fff;border:1px solid var(--border);font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s}
-  .pos-close:hover{transform:rotate(90deg);background:var(--input)}
-  .pos-close svg,.pos-lb-close svg{display:block}
-  .pos-tabs{flex:0 0 auto;display:flex;align-items:center;gap:8px;overflow-x:auto;padding:14px clamp(18px,2.6vw,30px);border-bottom:1px solid var(--border);scrollbar-width:none;background:var(--bg)}
-  .pos-tabs::-webkit-scrollbar{display:none}
-  .pos-tab{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;line-height:1;font-size:12.5px;font-weight:700;color:var(--muted);background:#fff;border:1px solid var(--border);border-radius:999px;padding:9px 15px;transition:all .2s;white-space:nowrap}
-  .pos-tab:hover{border-color:rgba(169,124,47,.5);color:var(--ink)}
-  .pos-tab.active{background:var(--ink);border-color:var(--ink);color:#F8F6F2}
-  .pos-tab .count{opacity:.6;font-weight:600;margin-left:5px}
-  .pos-gallery{flex:1 1 auto;min-height:0;overflow-y:auto;padding:clamp(16px,2.4vw,28px) clamp(18px,2.6vw,30px) clamp(24px,3vw,36px);display:flex;flex-wrap:wrap;gap:clamp(12px,1.8vw,20px);align-content:flex-start;align-items:flex-start}
-  .pos-shot{position:relative;flex:1 1 var(--shot-basis,250px);max-width:100%;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff;cursor:zoom-in;aspect-ratio:var(--shot-aspect,1133/744);box-shadow:0 10px 24px -20px rgba(27,27,32,.5);animation:posIn .45s cubic-bezier(.2,.7,.2,1) both}
-  .pos-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-  .pos-shot:hover img{transform:scale(1.05)}
-  .pos-shot::after{content:"Perbesar";position:absolute;inset:auto 0 0 0;padding:26px 12px 10px;font-size:11px;font-weight:800;letter-spacing:.6px;color:#fff;background:linear-gradient(180deg,transparent,rgba(20,18,16,.72));opacity:0;transition:opacity .3s}
-  .pos-shot:hover::after{opacity:1}
-  .pos-shot figcaption{position:absolute;top:8px;left:8px;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-radius:999px;font-size:10.5px;font-weight:800;letter-spacing:.4px;color:var(--ink);padding:4px 10px;opacity:0;transform:translateY(-4px);transition:all .3s}
-  .pos-shot:hover figcaption{opacity:1;transform:none}
-  @keyframes posIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+    /* ---------- Deck ---------- */
+    .deck {
+      display: flex;
+      height: 100vh;
+      height: 100svh;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+    }
 
-  /* Lightbox */
-  .pos-lightbox{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;background:rgba(16,14,12,.9);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;padding:clamp(14px,3vw,40px)}
-  .pos-lightbox.open{opacity:1;visibility:visible}
-  .pos-lb-figure{max-width:min(1100px,100%);max-height:100%;display:flex;flex-direction:column;align-items:center;gap:12px;transform:scale(.97);transition:transform .3s}
-  .pos-lightbox.open .pos-lb-figure{transform:none}
-  .pos-lb-figure img{max-width:100%;max-height:calc(100vh - 150px);border-radius:12px;box-shadow:0 30px 70px -30px rgba(0,0,0,.8);background:#fff}
-  .pos-lb-figure figcaption{color:#F3EFE7;font-size:13px;font-weight:600;letter-spacing:.3px;text-align:center}
-  .pos-lb-close{position:absolute;top:clamp(12px,2.4vw,24px);right:clamp(12px,2.4vw,24px);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:24px;line-height:1;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s}
-  .pos-lb-close:hover{background:rgba(255,255,255,.24);transform:rotate(90deg)}
-  .pos-lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s}
-  .pos-lb-nav:hover{background:rgba(255,255,255,.26)}
-  .pos-lb-nav.prev{left:clamp(8px,2vw,26px)}
-  .pos-lb-nav.next{right:clamp(8px,2vw,26px)}
-  .pos-lb-count{position:absolute;bottom:clamp(12px,2.4vw,22px);left:50%;transform:translateX(-50%);color:#F3EFE7;font-size:12px;font-weight:700;letter-spacing:1px;background:rgba(255,255,255,.1);padding:6px 14px;border-radius:999px}
+    .deck::-webkit-scrollbar {
+      display: none
+    }
 
-  /* ---------- Responsive ---------- */
-  @media (max-width:900px){
-    .cover{grid-template-columns:1fr;gap:clamp(20px,4vh,34px)}
-    .visual{width:min(62vw,300px);margin-top:8px}
-    .mono{font-size:clamp(80px,26vw,150px)}
-    .about{grid-template-columns:1fr}
-    .contact{grid-template-columns:1fr}
-    .proj-grid{grid-template-columns:repeat(2,1fr)}
-    .proj-featured{grid-template-columns:1fr}
-    .proj-featured-media{aspect-ratio:16/9}
-    .skills{grid-template-columns:repeat(2,1fr)}
-    .exp-grid{grid-template-columns:1fr}
-    .fun-grid{grid-template-columns:1fr}
-  }
-  @media (max-width:820px){
-    .slide-inner{padding-bottom:clamp(84px,13vh,104px)}
-    .slide-top{margin-bottom:clamp(14px,2.6vh,26px)}
-  }
-  @media (max-width:480px){
-    .field-row{grid-template-columns:1fr}
-    .proj h3{font-size:12px}
-    .nav{gap:10px;padding:7px 10px}
-    .nav button.arrow{width:36px;height:36px;font-size:16px}
-    .pos-modal{padding:0}
-    .pos-modal-panel{border-radius:0;max-height:100%;height:100%}
-    .pos-gallery{grid-template-columns:1fr}
-    .pos-lb-nav{width:40px;height:40px;font-size:17px}
-    .pos-lb-figure img{max-height:calc(100vh - 130px)}
-    .dots button{width:7px;height:7px}
-    .dots button.active{width:18px}
-    .hint{font-size:14px}
-  }
-  @media (prefers-reduced-motion:reduce){
-    .deck{scroll-behavior:auto}
-  }
-</style>
+    .slide {
+      flex: 0 0 100%;
+      height: 100vh;
+      height: 100svh;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      overflow-y: auto;
+      overflow-x: hidden;
+      overscroll-behavior-y: contain;
+      display: flex;
+      background: var(--bg);
+    }
+
+    .slide-inner {
+      width: min(1180px, 100%);
+      margin: auto;
+      padding: clamp(22px, 4vw, 56px);
+      padding-bottom: clamp(92px, 12vh, 120px);
+    }
+
+    .slide-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: clamp(18px, 3.4vh, 40px)
+    }
+
+    .num {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--dim)
+    }
+
+    h2.title {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(30px, 4.6vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -.02em
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: clamp(15px, 1.7vw, 19px);
+      margin-top: .5em
+    }
+
+    /* ---------- 1. Cover ---------- */
+    .cover {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: clamp(20px, 4vw, 64px);
+      align-items: center
+    }
+
+    .cover h1 {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(40px, 7.4vw, 86px);
+      line-height: 1.02;
+      letter-spacing: -.025em;
+      margin: 14px 0 10px
+    }
+
+    .role {
+      font-size: clamp(19px, 2.6vw, 32px);
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: .4px
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: clamp(15px, 1.6vw, 20px);
+      line-height: 1.6;
+      max-width: 620px;
+      margin-top: 16px
+    }
+
+    .hint {
+      margin-top: clamp(22px, 4vh, 52px);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .visual {
+      position: relative;
+      width: min(100%, 380px);
+      aspect-ratio: 1;
+      justify-self: center
+    }
+
+    .orb {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: linear-gradient(160deg, #EFE9DD, #DDD4C4);
+      border: 1px solid #E6DFD2
+    }
+
+    .ring {
+      position: absolute;
+      inset: 9%;
+      border-radius: 50%;
+      border: 1px solid rgba(154, 110, 36, .5)
+    }
+
+    .mono {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-weight: 700;
+      color: var(--accent);
+      font-size: clamp(90px, 22vw, 200px);
+      line-height: 1;
+      padding-top: 2%
+    }
+
+    .tech-pill {
+      position: absolute;
+      left: 50%;
+      bottom: -14px;
+      transform: translateX(-50%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      white-space: nowrap
+    }
+
+    /* ---------- 2. About ---------- */
+    .about {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: clamp(22px, 4vw, 64px);
+      align-items: start
+    }
+
+    .about p {
+      color: var(--muted);
+      font-size: clamp(15px, 1.5vw, 19px);
+      line-height: 1.7;
+      margin-top: 18px;
+      max-width: 640px
+    }
+
+    .stats {
+      display: flex;
+      gap: clamp(24px, 5vw, 64px);
+      margin-top: clamp(22px, 4vh, 48px);
+      flex-wrap: wrap
+    }
+
+    .stat b {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 48px);
+      display: block;
+      line-height: 1
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .focus {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: clamp(22px, 3vw, 36px)
+    }
+
+    .focus h3 {
+      font-family: var(--serif);
+      font-size: clamp(20px, 2.4vw, 26px);
+      margin: 6px 0 18px
+    }
+
+    .focus ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px
+    }
+
+    .focus li {
+      display: flex;
+      gap: 12px;
+      font-size: clamp(14px, 1.4vw, 16px);
+      line-height: 1.4
+    }
+
+    .focus li b {
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+      font-weight: 700
+    }
+
+    /* ---------- 3. Experience ---------- */
+    .exp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(14px, 2.4vw, 24px);
+      margin-top: clamp(20px, 3.4vh, 40px)
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: clamp(20px, 3vw, 32px)
+    }
+
+    .card h3 {
+      font-size: clamp(17px, 1.9vw, 24px);
+      line-height: 1.25
+    }
+
+    .card .company {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: clamp(14px, 1.4vw, 16px);
+      margin-top: 6px
+    }
+
+    .card .period {
+      color: var(--dim);
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 4px
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: clamp(14px, 1.4vw, 16px);
+      line-height: 1.6;
+      margin-top: 14px
+    }
+
+    /* ---------- 4/5/6. Projects ---------- */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(12px, 2vw, 22px);
+      margin-top: clamp(16px, 2.8vh, 34px)
+    }
+
+    .proj-grid-featured {
+      grid-template-columns: 1fr;
+    }
+
+    .proj-grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .proj {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .thumb {
+      aspect-ratio: 16/10;
+      border-radius: 9px;
+      overflow: hidden;
+      background: #F4F1EA
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center
+    }
+
+    .proj h3 {
+      font-size: clamp(14px, 1.4vw, 17px);
+      line-height: 1.25
+    }
+
+    .proj:not(.proj-featured) p {
+      color: var(--muted);
+      font-size: clamp(12.5px, 1.2vw, 13.5px);
+      line-height: 1.5;
+      flex: 1 1 auto;
+    }
+
+    .proj-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+
+    .proj .tech {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      color: var(--accent);
+      text-transform: uppercase
+    }
+
+    .proj-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(154, 110, 36, .5);
+    }
+
+    .proj-link:hover {
+      color: var(--accent);
+    }
+
+    /* ---------- 7. Skills ---------- */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: clamp(12px, 1.8vw, 18px);
+      margin-top: clamp(18px, 3vh, 34px)
+    }
+
+    .skill {
+      display: flex;
+      align-items: center;
+      gap: clamp(10px, 1.2vw, 14px);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: clamp(12px, 1.5vw, 16px)
+    }
+
+    .ic {
+      width: clamp(38px, 4.5vw, 52px);
+      aspect-ratio: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #F4F1EA;
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .ic img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 6px
+    }
+
+    .ic svg {
+      width: 62%;
+      height: 62%;
+      display: block
+    }
+
+    .skill b {
+      font-size: clamp(13px, 1.3vw, 15px);
+      line-height: 1.25
+    }
+
+    /* ---------- 8. Fun ---------- */
+    .fun-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(14px, 2.4vw, 24px);
+      margin-top: clamp(18px, 3vh, 34px)
+    }
+
+    .fun {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px
+    }
+
+    .fun-video {
+      position: relative;
+      aspect-ratio: 16/9;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      background: #000
+    }
+
+    .fun-poster-btn {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      display: block;
+      cursor: pointer;
+    }
+
+    .fun-poster-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform .4s, opacity .3s
+    }
+
+    .fun-poster-btn:hover img,
+    .fun-poster-btn:focus-visible img {
+      transform: scale(1.03);
+    }
+
+    .fun-play-badge {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(27, 27, 32, .82);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, .28);
+      transition: transform .25s, background .25s;
+    }
+
+    .fun-poster-btn:hover .fun-play-badge,
+    .fun-poster-btn:focus-visible .fun-play-badge {
+      transform: translate(-50%, -50%) scale(1.08);
+      background: var(--accent);
+    }
+
+    .fun-video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150%;
+      height: 150%;
+      border: 0;
+      display: block;
+      transform: scale(.6667);
+      transform-origin: top left
+    }
+
+    .fun h3 {
+      font-size: clamp(18px, 2vw, 24px)
+    }
+
+    .fun p {
+      color: var(--muted);
+      font-size: clamp(14px, 1.4vw, 16px);
+      line-height: 1.55;
+      margin-top: 6px
+    }
+
+    .fun .tech {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 13px;
+      margin-top: 10px
+    }
+
+    /* ---------- 9. Contact ---------- */
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(22px, 4vw, 64px);
+      align-items: center
+    }
+
+    .contact h2 {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(34px, 5vw, 60px);
+      line-height: 1.06;
+      letter-spacing: -.02em
+    }
+
+    .contact .sub {
+      color: var(--muted);
+      font-size: clamp(15px, 1.6vw, 20px);
+      margin-top: 16px;
+      max-width: 460px
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 24px;
+      max-width: 440px;
+    }
+
+    .copy-email {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 48px;
+      padding: 10px 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: left;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .copy-email:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .copy-pill {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--input);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px 10px;
+      white-space: nowrap;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 9px 15px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: border-color .2s, background .2s, transform .2s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .contact-link.primary {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #F8F6F2;
+    }
+
+    .contact-link.primary:hover {
+      opacity: .92;
+    }
+
+    .contact .note {
+      color: var(--dim);
+      font-size: 14px;
+      margin-top: 16px;
+      max-width: 430px;
+      line-height: 1.55
+    }
+
+    form.mail {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: clamp(20px, 3vw, 34px);
+      display: flex;
+      flex-direction: column;
+      gap: 14px
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px
+    }
+
+    .field label {
+      font-size: 13px;
+      font-weight: 700
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      min-height: 48px;
+      background: var(--input);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 15px;
+      font-family: inherit;
+      font-size: max(1rem, 1em);
+      color: var(--ink);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s
+    }
+
+    .field textarea {
+      min-height: 104px;
+      resize: vertical;
+      line-height: 1.5
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #78736A
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(154, 110, 36, .16)
+    }
+
+    .field input[aria-invalid="true"],
+    .field textarea[aria-invalid="true"] {
+      border-color: var(--error);
+      box-shadow: 0 0 0 3px rgba(178, 42, 42, .12)
+    }
+
+    .submit {
+      min-height: 48px;
+      background: var(--ink);
+      color: #F8F6F2;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 22px;
+      border-radius: 10px;
+      letter-spacing: .3px;
+      transition: transform .2s, opacity .2s
+    }
+
+    .submit:hover {
+      transform: translateY(-1px);
+      opacity: .93
+    }
+
+    .form-status {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-align: center;
+      min-height: 18px
+    }
+
+    .form-status.is-error {
+      color: var(--error);
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--dim);
+      text-align: center
+    }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: fixed;
+      left: 50%;
+      bottom: clamp(12px, 2.6vh, 24px);
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 60;
+      background: rgba(255, 255, 255, .86);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 12px;
+      box-shadow: 0 18px 40px -26px rgba(27, 27, 32, .55);
+    }
+
+    .nav button.arrow {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: transform .2s, opacity .2s
+    }
+
+    .nav button.prev {
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--ink)
+    }
+
+    .nav button.next {
+      background: var(--ink);
+      color: #F8F6F2
+    }
+
+    .nav button.arrow:hover {
+      transform: translateY(-1px);
+      opacity: .9
+    }
+
+    .nav button.arrow:disabled {
+      opacity: .35;
+      cursor: default;
+      transform: none
+    }
+
+    .dots {
+      display: flex;
+      gap: 7px;
+      align-items: center
+    }
+
+    .dots button {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #C9C1B2;
+      padding: 0;
+      position: relative;
+      transition: width .3s, background .3s
+    }
+
+    .dots button::after {
+      content: "";
+      position: absolute;
+      inset: -10px -4px;
+    }
+
+    .dots button.active {
+      width: 22px;
+      background: var(--accent)
+    }
+
+    /* ---------- Featured project (PROX & DTK) ---------- */
+    .proj-featured {
+      padding: 0;
+      overflow: hidden;
+      transition: transform .35s cubic-bezier(.2, .7, .2, 1), box-shadow .35s, border-color .35s;
+    }
+
+    .proj-featured:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 26px 54px -32px rgba(27, 27, 32, .55);
+      border-color: rgba(154, 110, 36, .55)
+    }
+
+    .proj-featured-btn {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: clamp(16px, 2.4vw, 30px);
+      padding: clamp(12px, 1.6vw, 18px);
+      text-align: left;
+      align-items: center;
+    }
+
+    .proj-featured-media {
+      position: relative;
+      border-radius: 11px;
+      overflow: hidden;
+      background: #F4F1EA;
+      aspect-ratio: 16/10
+    }
+
+    .proj-featured-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform .6s cubic-bezier(.2, .7, .2, 1)
+    }
+
+    .proj-featured:hover .proj-featured-media img {
+      transform: scale(1.04)
+    }
+
+    .proj-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 999px;
+      box-shadow: 0 6px 16px -8px rgba(0, 0, 0, .5)
+    }
+
+    .proj-featured-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(4px, 1vw, 10px) clamp(2px, 1vw, 8px)
+    }
+
+    .proj-featured-eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--accent)
+    }
+
+    .proj-featured-body h3 {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.5vw, 30px);
+      line-height: 1.12;
+      margin: 8px 0 0
+    }
+
+    .proj-featured-body p {
+      color: var(--muted);
+      font-size: clamp(13px, 1.35vw, 15px);
+      line-height: 1.6;
+      margin-top: 10px;
+      max-width: 48ch
+    }
+
+    .proj-featured-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px
+    }
+
+    .proj-featured-meta span {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      background: var(--input);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 5px 11px
+    }
+
+    .proj-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: .2px
+    }
+
+    .proj-cta span {
+      transition: transform .3s
+    }
+
+    .proj-featured:hover .proj-cta span {
+      transform: translateX(5px)
+    }
+
+    /* ---------- Native <dialog> gallery modal & lightbox ---------- */
+    dialog:modal {
+      overscroll-behavior: contain;
+    }
+
+    dialog::backdrop {
+      overflow: hidden;
+      overscroll-behavior: contain;
+    }
+
+    dialog.pos-modal {
+      width: min(1180px, calc(100vw - 2 * clamp(10px, 2.4vw, 34px)));
+      height: min(900px, calc(100vh - 2 * clamp(10px, 2.4vw, 34px)));
+      max-width: 100%;
+      max-height: 100%;
+      margin: auto;
+      padding: 0;
+      background: var(--bg);
+      color: var(--ink);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 40px 90px -40px rgba(0, 0, 0, .6);
+    }
+
+    dialog.pos-modal[open] {
+      display: flex;
+      flex-direction: column;
+      animation: modalIn .28s cubic-bezier(.2, .7, .2, 1) both;
+    }
+
+    dialog.pos-modal::backdrop {
+      background: rgba(20, 18, 16, .62);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    @keyframes modalIn {
+      from {
+        opacity: 0;
+        transform: translateY(14px) scale(.985)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .pos-modal-head {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: clamp(16px, 2.4vw, 26px) clamp(18px, 2.6vw, 30px);
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, #fff, #FBF9F5)
+    }
+
+    .pos-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0
+    }
+
+    .pos-logo {
+      flex: 0 0 auto;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: #B20403;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: .5px;
+      box-shadow: 0 10px 22px -12px rgba(178, 4, 3, .8)
+    }
+
+    .pos-brand h2 {
+      font-family: var(--serif);
+      font-size: clamp(19px, 2.2vw, 26px);
+      line-height: 1.1
+    }
+
+    .pos-brand p {
+      color: var(--muted);
+      font-size: 12.5px;
+      margin-top: 3px
+    }
+
+    .pos-close {
+      flex: 0 0 auto;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--border);
+      font-size: 22px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .2s, background .2s
+    }
+
+    .pos-close:hover {
+      transform: rotate(90deg);
+      background: var(--input)
+    }
+
+    .pos-close svg,
+    .pos-lb-close svg {
+      display: block
+    }
+
+    .pos-tabs {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 14px clamp(18px, 2.6vw, 30px);
+      border-bottom: 1px solid var(--border);
+      scrollbar-width: none;
+      background: var(--bg)
+    }
+
+    .pos-tabs::-webkit-scrollbar {
+      display: none
+    }
+
+    .pos-tab {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      line-height: 1;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--muted);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 9px 15px;
+      transition: all .2s;
+      white-space: nowrap
+    }
+
+    .pos-tab:hover {
+      border-color: rgba(154, 110, 36, .5);
+      color: var(--ink)
+    }
+
+    .pos-tab.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #F8F6F2
+    }
+
+    .pos-tab .count {
+      opacity: .72;
+      font-weight: 600;
+      margin-left: 5px
+    }
+
+    .pos-gallery {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      padding: clamp(16px, 2.4vw, 28px) clamp(18px, 2.6vw, 30px) clamp(24px, 3vw, 36px);
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(12px, 1.8vw, 20px);
+      align-content: flex-start;
+      align-items: flex-start
+    }
+
+    .pos-shot {
+      position: relative;
+      flex: 1 1 var(--shot-basis, 250px);
+      max-width: 100%;
+      padding: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #fff;
+      cursor: zoom-in;
+      aspect-ratio: var(--shot-aspect, 1133/744);
+      box-shadow: 0 10px 24px -20px rgba(27, 27, 32, .5);
+      animation: posIn .45s cubic-bezier(.2, .7, .2, 1) both
+    }
+
+    .pos-shot img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform .5s cubic-bezier(.2, .7, .2, 1)
+    }
+
+    .pos-shot:hover img,
+    .pos-shot:focus-visible img {
+      transform: scale(1.05)
+    }
+
+    .pos-shot::after {
+      content: "Perbesar";
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 26px 12px 10px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .6px;
+      color: #fff;
+      background: linear-gradient(180deg, transparent, rgba(20, 18, 16, .72));
+      opacity: 0;
+      transition: opacity .3s
+    }
+
+    .pos-shot:hover::after,
+    .pos-shot:focus-visible::after {
+      opacity: 1
+    }
+
+    .pos-shot-cap {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(255, 255, 255, .94);
+      backdrop-filter: blur(6px);
+      border-radius: 999px;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: .4px;
+      color: var(--ink);
+      padding: 4px 10px;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: all .3s
+    }
+
+    .pos-shot:hover .pos-shot-cap,
+    .pos-shot:focus-visible .pos-shot-cap {
+      opacity: 1;
+      transform: none
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .pos-shot-cap {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    @keyframes posIn {
+      from {
+        opacity: 0;
+        transform: translateY(14px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    /* Lightbox native <dialog> */
+    dialog.pos-lightbox {
+      width: 100vw;
+      height: 100vh;
+      max-width: 100vw;
+      max-height: 100vh;
+      margin: 0;
+      border: none;
+      background: transparent;
+      padding: clamp(14px, 3vw, 40px);
+      overflow: hidden;
+    }
+
+    dialog.pos-lightbox[open] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: lbIn .22s ease both;
+    }
+
+    dialog.pos-lightbox::backdrop {
+      background: rgba(16, 14, 12, .9);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    @keyframes lbIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .pos-lb-figure {
+      max-width: min(1100px, 100%);
+      max-height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .pos-lb-figure img {
+      max-width: 100%;
+      max-height: calc(100vh - 150px);
+      border-radius: 12px;
+      box-shadow: 0 30px 70px -30px rgba(0, 0, 0, .8);
+      background: #fff
+    }
+
+    .pos-lb-figure figcaption {
+      color: #F3EFE7;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .3px;
+      text-align: center
+    }
+
+    .pos-lb-close {
+      position: absolute;
+      top: clamp(12px, 2.4vw, 24px);
+      right: clamp(12px, 2.4vw, 24px);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .14);
+      color: #fff;
+      font-size: 24px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s, transform .2s
+    }
+
+    .pos-lb-close:hover {
+      background: rgba(255, 255, 255, .26);
+      transform: rotate(90deg)
+    }
+
+    .pos-lb-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .14);
+      color: #fff;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s, transform .2s
+    }
+
+    .pos-lb-nav:hover {
+      background: rgba(255, 255, 255, .28)
+    }
+
+    .pos-lb-nav.prev {
+      left: clamp(8px, 2vw, 26px)
+    }
+
+    .pos-lb-nav.next {
+      right: clamp(8px, 2vw, 26px)
+    }
+
+    .pos-lb-count {
+      position: absolute;
+      bottom: clamp(12px, 2.4vw, 22px);
+      left: 50%;
+      transform: translateX(-50%);
+      color: #F3EFE7;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: rgba(255, 255, 255, .12);
+      padding: 6px 14px;
+      border-radius: 999px
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:900px) {
+      .cover {
+        grid-template-columns: 1fr;
+        gap: clamp(20px, 4vh, 34px)
+      }
+
+      .visual {
+        width: min(62vw, 300px);
+        margin-top: 8px
+      }
+
+      .mono {
+        font-size: clamp(80px, 26vw, 150px)
+      }
+
+      .about {
+        grid-template-columns: 1fr
+      }
+
+      .contact {
+        grid-template-columns: 1fr
+      }
+
+      .proj-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .proj-grid-featured {
+        grid-template-columns: 1fr
+      }
+
+      .proj-featured-btn {
+        grid-template-columns: 1fr
+      }
+
+      .proj-featured-media {
+        aspect-ratio: 16/9
+      }
+
+      .skills {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .exp-grid {
+        grid-template-columns: 1fr
+      }
+
+      .fun-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media (max-width:820px) {
+      .slide-inner {
+        padding-bottom: clamp(84px, 13vh, 104px)
+      }
+
+      .slide-top {
+        margin-bottom: clamp(14px, 2.6vh, 26px)
+      }
+    }
+
+    @media (max-width:540px) {
+      .proj-grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width:480px) {
+      .field-row {
+        grid-template-columns: 1fr
+      }
+
+      .nav {
+        gap: 10px;
+        padding: 7px 10px
+      }
+
+      .nav button.arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 16px
+      }
+
+      dialog.pos-modal {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        border: none;
+      }
+
+      .pos-lb-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 17px
+      }
+
+      .pos-lb-figure img {
+        max-height: calc(100vh - 130px)
+      }
+
+      .dots button {
+        width: 7px;
+        height: 7px
+      }
+
+      .dots button.active {
+        width: 18px
+      }
+
+      .hint {
+        font-size: 14px
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .deck {
+        scroll-behavior: auto
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="deck" id="deck">
+  <main class="deck" id="deck">
 
-  <!-- ============ SLIDE 1 — COVER ============ -->
-  <section class="slide" aria-label="Slide 1 — Cover">
-    <div class="slide-inner">
-      <div class="slide-top"><span class="eyebrow">Portofolio 2026</span><span class="num">01 / 08</span></div>
-      <div class="cover">
-        <div>
-          <h1 class="display">Ricky<br />Verdiyanto</h1>
-          <div class="role">Mobile Apps Developer</div>
-          <p class="tagline">Pengembang aplikasi mobile &amp; web yang mengubah ide menjadi produk digital yang rapi, responsif, dan siap pakai.</p>
-          <div class="hint">Tekan → atau geser untuk mulai</div>
-        </div>
-        <div class="visual" aria-hidden="true">
-          <div class="orb"></div>
-          <div class="ring"></div>
-          <div class="mono">RV</div>
-          <div class="tech-pill">Flutter &nbsp;·&nbsp; Laravel</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SLIDE 2 — TENTANG ============ -->
-  <section class="slide" aria-label="Slide 2 — Tentang">
-    <div class="slide-inner">
-      <div class="slide-top"><span class="eyebrow">Tentang</span><span class="num">02 / 08</span></div>
-      <div class="about">
-        <div>
-          <h2 class="title">Tentang Saya</h2>
-          <p>Pengembang aplikasi mobile dengan pengalaman tiga tahun dalam pengembangan agile. Terbiasa membangun aplikasi yang inovatif dan ramah pengguna, cepat beradaptasi, serta bekerja efektif dalam tim.</p>
-          <p>Berpengalaman dalam slicing desain dan menghadirkan UI/UX yang responsif dan interaktif, siap mengubah ide menjadi aplikasi nyata dengan hasil optimal.</p>
-          <div class="stats">
-            <div class="stat"><b>3+</b><span>Tahun Pengalaman</span></div>
-            <div class="stat"><b>11+</b><span>Proyek Selesai</span></div>
-            <div class="stat"><b>8</b><span>Teknologi</span></div>
+    <!-- ============ SLIDE 1 — COVER ============ -->
+    <section class="slide" aria-label="Slide 1 — Cover">
+      <div class="slide-inner">
+        <div class="slide-top"><span class="eyebrow">Portofolio 2026</span><span class="num">01 / 09</span></div>
+        <div class="cover">
+          <div>
+            <h1 class="display">Ricky<br />Verdiyanto</h1>
+            <div class="role">Mobile &amp; Web Developer</div>
+            <p class="tagline">Pengembang aplikasi mobile &amp; web yang mengubah ide menjadi produk digital yang rapi,
+              responsif, dan siap pakai.</p>
+            <div class="hint">Tekan → atau geser untuk mulai</div>
+          </div>
+          <div class="visual" aria-hidden="true">
+            <div class="orb"></div>
+            <div class="ring"></div>
+            <div class="mono">RV</div>
+            <div class="tech-pill">Flutter &nbsp;·&nbsp; Laravel &nbsp;·&nbsp; Java</div>
           </div>
         </div>
-        <div class="focus">
-          <span class="eyebrow">Fokus Saya</span>
-          <h3>Yang saya kerjakan</h3>
-          <ul>
-            <li><b>01</b><span>Aplikasi Mobile · Flutter</span></li>
-            <li><b>02</b><span>Web App · Laravel</span></li>
-            <li><b>03</b><span>UI/UX Slicing &amp; Interaktif</span></li>
-            <li><b>04</b><span>Integrasi API &amp; Firebase</span></li>
-          </ul>
+      </div>
+    </section>
+
+    <!-- ============ SLIDE 2 — TENTANG ============ -->
+    <section class="slide" aria-label="Slide 2 — Tentang">
+      <div class="slide-inner">
+        <div class="slide-top"><span class="eyebrow">Tentang</span><span class="num">02 / 09</span></div>
+        <div class="about">
+          <div>
+            <h2 class="title">Tentang Saya</h2>
+            <p>Pengembang aplikasi mobile dan web dengan pengalaman empat tahun di lingkungan kerja agile. Terbiasa
+              membangun aplikasi Android &amp; iOS berbasis Flutter serta sistem backend dan web menggunakan Laravel.</p>
+            <p>Berpengalaman menerapkan Clean Architecture, BLoC, Riverpod, alur offline-first dengan SQLite, hingga
+              merilis aplikasi ke Google Play Store dan Apple App Store.</p>
+            <div class="stats">
+              <div class="stat"><b>4+</b><span>Tahun Pengalaman</span></div>
+              <div class="stat"><b>14+</b><span>Proyek Selesai</span></div>
+              <div class="stat"><b>10</b><span>Teknologi</span></div>
+            </div>
+          </div>
+          <div class="focus">
+            <span class="eyebrow">Fokus Saya</span>
+            <h3>Yang saya kerjakan</h3>
+            <ul>
+              <li><b>01</b><span>Aplikasi Mobile · Flutter &amp; Java Android</span></li>
+              <li><b>02</b><span>Web App &amp; CMS · Laravel &amp; WordPress</span></li>
+              <li><b>03</b><span>Clean Architecture &amp; Offline-First</span></li>
+              <li><b>04</b><span>Integrasi REST API &amp; Firebase</span></li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============ SLIDE 3 — PENGALAMAN ============ -->
-  <section class="slide" aria-label="Slide 3 — Pengalaman">
-    <div class="slide-inner">
-      <div class="slide-top"><span class="eyebrow">Perjalanan</span><span class="num">03 / 08</span></div>
-      <h2 class="title">Pengalaman</h2>
-      <p class="subtitle">Perjalanan karier saya sebagai pengembang aplikasi</p>
-      <div class="exp-grid">
-        <article class="card">
-          <h3>Mobile Developer &amp; WordPress Design</h3>
-          <div class="company">PT. Tebar Digital Kreasi</div>
-          <div class="period">Desember 2022 — Sekarang</div>
-          <p>Mengembangkan aplikasi mobile dan desain website WordPress, berkolaborasi dalam tim agile untuk menghadirkan produk digital yang andal.</p>
-        </article>
-        <article class="card">
-          <h3>Mobile Developer</h3>
-          <div class="company">CV. Techarea Indonesia Jaya</div>
-          <div class="period">Juli 2022 — November 2022</div>
-          <p>Membangun aplikasi mobile untuk berbagai klien, termasuk aplikasi e-commerce dan absensi berbasis Flutter dengan integrasi Firebase.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SLIDE 4 — PROYEK 1 ============ -->
-  <section class="slide" aria-label="Slide 4 — Proyek 1">
-    <div class="slide-inner">
-      <div class="slide-top"><span class="eyebrow">Karya</span><span class="num">04 / 08</span></div>
-      <h2 class="title">Proyek Pilihan</h2>
-      <p class="subtitle">Sebagian proyek yang saya kerjakan — 1 / 2</p>
-      <div class="proj-grid">
-        <article class="proj proj-featured" id="posProject" role="button" tabindex="0" aria-label="Buka galeri desain aplikasi POS">
-          <div class="proj-featured-media">
-            <img src="assets/images/pos/pos-kasir.webp" alt="Aplikasi POS — tampilan kasir" loading="lazy" decoding="async" />
-            <span class="proj-badge">Unggulan</span>
-          </div>
-          <div class="proj-featured-body">
-            <div class="proj-featured-eyebrow">Aplikasi POS · Laravel &amp; Flutter</div>
-            <h3>Aplikasi POS</h3>
-            <p>Sistem point of sale lengkap — kasir, pesanan, pembelian, manajemen kas, kontak, dan retur dalam satu alur yang rapi.</p>
-            <div class="proj-featured-meta"><span>17 layar</span><span>6 modul</span><span>UI/UX</span></div>
-            <span class="proj-cta">Lihat semua desain <span aria-hidden="true">→</span></span>
-          </div>
-        </article>
-        <article class="proj proj-featured" id="dtkProject" role="button" tabindex="0" aria-label="Buka galeri desain DTK Mobile">
-          <div class="proj-featured-media">
-            <img src="assets/images/dtk.webp" alt="DTK Mobile — mockup aplikasi absensi" loading="lazy" decoding="async" />
-            <span class="proj-badge">Terbaru</span>
-          </div>
-          <div class="proj-featured-body">
-            <div class="proj-featured-eyebrow">DTK Mobile · Flutter</div>
-            <h3>DTK Mobile</h3>
-            <p>Aplikasi absensi karyawan PT Dharma Trikarya dengan deteksi fake GPS dan penjadwalan penugasan lapangan — lengkap dengan foto, tanda tangan, riwayat, dan profil.</p>
-            <div class="proj-featured-meta"><span>31 layar</span><span>7 modul</span><span>UI/UX</span></div>
-            <span class="proj-cta">Lihat semua desain <span aria-hidden="true">→</span></span>
-          </div>
-        </article>
-        <article class="proj"><div class="thumb"><img src="assets/images/harian-jogja.webp" alt="Harian Jogja" loading="lazy" decoding="async" /></div><h3>Harian Jogja</h3><p>Aplikasi mobile berisi berita, siaran radio, video, dan pembelian koran online.</p><div class="tech">Flutter</div></article>
-        <article class="proj"><div class="thumb"><img src="assets/images/angplop.webp" alt="Angplop" loading="lazy" decoding="async" /></div><h3>Angplop</h3><p>Aplikasi mobile untuk pengelolaan keuangan pribadi, pasangan, hingga keluarga.</p><div class="tech">Flutter</div></article>
-        <article class="proj"><div class="thumb"><img src="assets/images/airren.webp" alt="Airren" loading="lazy" decoding="async" /></div><h3>Airren</h3><p>Aplikasi mobile untuk pencatatan pembayaran air bersih.</p><div class="tech">Flutter</div></article>
-        <article class="proj"><div class="thumb"><img src="assets/images/rumaroof.webp" alt="Rumaroof" loading="lazy" decoding="async" /></div><h3>Rumaroof</h3><p>Aplikasi toko online aneka material bangunan mentah dan siap pakai milik CV Utama Baja.</p><div class="tech">Java</div></article>
-        <article class="proj"><div class="thumb"><img src="assets/images/bipanesia.webp" alt="Bipanesia" loading="lazy" decoding="async" /></div><h3>Bipanesia</h3><p>Aplikasi berbasis webview bagi pelajar asing yang ingin belajar bahasa Indonesia dengan mudah.</p><div class="tech">Flutter</div></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SLIDE 5 — PROYEK 2 ============ -->
-  <section class="slide" aria-label="Slide 5 — Proyek 2">
-    <div class="slide-inner">
-      <div class="slide-top"><span class="eyebrow">Karya</span><span class="num">05 / 08</span></div>
-      <h2 class="title">Proyek Pilihan</h2>
-      <p class="subtitle">Sebagian proyek yang saya kerjakan — 2 / 2</p>
-      <div class="proj-grid">
-        <article class="proj"><div class="thumb"><img src="assets/images/djsport.webp" alt="CMS DJSport" loading="lazy" decoding="async" /></div><h3>CMS DJSport</h3><p>Aplikasi web untuk mengelola proses produksi toko apparel, dari pesanan hingga barang jadi: pencatatan pesanan, status produksi, stok bahan baku, dan pengiriman produk akhir.</p><div class="tech">Laravel</div></article>
-        <article class="proj"><div class="thumb"><img src="assets/images/djcustomer.webp" alt="Customer DJSport" loading="lazy" decoding="async" /></div><h3>Customer DJSport</h3><p>Aplikasi khusus pelanggan DJ Sport yang memesan produk untuk memantau progres produksi secara realtime.</p><div class="tech">Laravel</div></article>
-        <article class="proj"><div class="thumb"><img src="assets/images/djemployee.webp" alt="Employee DJSport" loading="lazy" decoding="async" /></div><h3>Employee DJSport</h3><p>Aplikasi khusus karyawan DJ Sport yang bertugas memproduksi pesanan pelanggan untuk memperbarui progres pekerjaan hingga selesai.</p><div class="tech">Laravel</div></article>
-        <article class="proj"><div class="thumb"><img src="assets/images/cmsandalas.webp" alt="CMS AndalasFarm" loading="lazy" decoding="async" /></div><h3>CMS AndalasFarm</h3><p>Aplikasi web CMS sekaligus platform e-commerce untuk menjual alat dan obat pertanian dengan manajemen inventaris terintegrasi, kategori produk, harga, flash sale, dan sistem pemesanan.</p><div class="tech">Laravel</div></article>
-        <article class="proj"><div class="thumb"><img src="assets/images/andalasfarm.webp" alt="E-Commerce AndalasFarm" loading="lazy" decoding="async" /></div><h3>E-Commerce AndalasFarm</h3><p>Aplikasi web e-commerce AndalasFarm untuk menjual alat dan obat pertanian.</p><div class="tech">Laravel</div></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SLIDE 6 — KEAHLIAN ============ -->
-  <section class="slide" aria-label="Slide 6 — Keahlian">
-    <div class="slide-inner">
-      <div class="slide-top"><span class="eyebrow">Kompetensi</span><span class="num">06 / 08</span></div>
-      <h2 class="title">Keahlian</h2>
-      <p class="subtitle">Terus belajar sepanjang hayat</p>
-      <div class="skills">
-        <div class="skill"><span class="ic"><img src="assets/images/flutter_logo.webp" alt="Dart & Flutter" loading="lazy" decoding="async" /></span><b>Dart &amp; Flutter</b></div>
-        <div class="skill"><span class="ic"><img src="assets/images/laravel.webp" alt="Laravel" loading="lazy" decoding="async" /></span><b>Laravel</b></div>
-        <div class="skill"><span class="ic"><img src="assets/images/html.webp" alt="HTML" loading="lazy" decoding="async" /></span><b>HTML</b></div>
-        <div class="skill"><span class="ic"><img src="assets/images/css.webp" alt="CSS" loading="lazy" decoding="async" /></span><b>CSS</b></div>
-        <div class="skill"><span class="ic"><img src="assets/images/js.webp" alt="JavaScript" loading="lazy" decoding="async" /></span><b>JavaScript</b></div>
-        <div class="skill"><span class="ic"><img src="assets/images/git.webp" alt="Git" loading="lazy" decoding="async" /></span><b>Git</b></div>
-        <div class="skill"><span class="ic"><img src="assets/images/firebase.webp" alt="Firebase" loading="lazy" decoding="async" /></span><b>Firebase</b></div>
-        <div class="skill"><span class="ic"><img src="assets/images/python.webp" alt="Python" loading="lazy" decoding="async" /></span><b>Python</b></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SLIDE 7 — PROYEK SERU ============ -->
-  <section class="slide" aria-label="Slide 7 — Proyek Seru">
-    <div class="slide-inner">
-      <div class="slide-top"><span class="eyebrow">Sampingan</span><span class="num">07 / 08</span></div>
-      <h2 class="title">Proyek Seru</h2>
-      <p class="subtitle">Proyek sampingan yang saya buat di waktu luang</p>
-      <div class="fun-grid">
-        <article class="fun">
-          <div class="fun-video"><img class="fun-poster" src="assets/images/video-cinema.webp" alt="Cinema Verse — demo" loading="lazy" decoding="async" tabindex="0" role="button" aria-label="Putar video demo Cinema Verse" data-title="Cinema Verse — demo" data-embed="https://drive.google.com/file/d/1j5YcsrtMJkPRlS7mEwnTEBaEmhkJePlO/preview" /></div>
-          <h3>Cinema Verse</h3>
-          <p>Aplikasi film dari API TMDB, menerapkan clean architecture dengan Riverpod untuk manajemen state.</p>
-          <div class="tech">Flutter · Riverpod</div>
-        </article>
-        <article class="fun">
-          <div class="fun-video"><img class="fun-poster" src="assets/images/video-udb.webp" alt="UDB Berita — demo" loading="lazy" decoding="async" tabindex="0" role="button" aria-label="Putar video demo UDB Berita" data-title="UDB Berita — demo" data-embed="https://drive.google.com/file/d/1jKxN51q4w6tHiqDFoRVjSdpZZEcf-sNs/preview" /></div>
-          <h3>UDB Berita</h3>
-          <p>Aplikasi berita dan artikel untuk Universitas Duta Bangsa.</p>
-          <div class="tech">Flutter</div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SLIDE 8 — KONTAK ============ -->
-  <section class="slide" aria-label="Slide 8 — Kontak">
-    <div class="slide-inner">
-      <div class="slide-top"><span class="eyebrow">Kontak</span><span class="num">08 / 08</span></div>
-      <div class="contact">
-        <div>
-          <h2>Mari Berkolaborasi</h2>
-          <p class="sub">Kirim pesan dan saya akan membalas secepatnya.</p>
-          <p class="note">Form ini mengirim pesan lewat aplikasi email Anda. Informasi Anda tidak dipublikasikan.</p>
+    <!-- ============ SLIDE 3 — PENGALAMAN ============ -->
+    <section class="slide" aria-label="Slide 3 — Pengalaman">
+      <div class="slide-inner">
+        <div class="slide-top"><span class="eyebrow">Perjalanan</span><span class="num">03 / 09</span></div>
+        <h2 class="title">Pengalaman</h2>
+        <p class="subtitle">Perjalanan karier saya sebagai pengembang aplikasi</p>
+        <div class="exp-grid">
+          <article class="card">
+            <h3>Mobile Developer &amp; WordPress Design</h3>
+            <div class="company">PT. Tebar Digital Kreasi</div>
+            <div class="period">Desember 2022 — Oktober 2026</div>
+            <p>Menganalisis kebutuhan sistem, merancang arsitektur dan mengembangkan aplikasi mobile Flutter, membuat
+              desain website WordPress, serta menyiapkan rilis aplikasi ke Play Store dan App Store dalam tim agile.</p>
+          </article>
+          <article class="card">
+            <h3>Mobile Developer</h3>
+            <div class="company">CV. Techarea Indonesia Jaya</div>
+            <div class="period">Juni 2022 — Oktober 2022</div>
+            <p>Mengembangkan aplikasi Android menggunakan Java, termasuk proyek e-commerce Rumaroof untuk toko online
+              aneka material bangunan, hingga persiapan rilis ke Google Play Store.</p>
+          </article>
         </div>
-        <form class="mail" id="contactForm" novalidate>
-          <div class="field-row">
-            <div class="field"><label for="nama">Nama</label><input id="nama" name="nama" type="text" placeholder="Nama lengkap" required /></div>
-            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="nama@email.com" required /></div>
-          </div>
-          <div class="field"><label for="subjek">Subjek</label><input id="subjek" name="subjek" type="text" placeholder="Tentang apa?" required /></div>
-          <div class="field"><label for="pesan">Pesan</label><textarea id="pesan" name="pesan" placeholder="Ceritakan ide proyek atau kebutuhan Anda..." required></textarea></div>
-          <button class="submit" type="submit">Kirim Pesan</button>
-          <div class="form-status" id="formStatus"></div>
-          <div class="form-note">Pesan akan dikirim lewat aplikasi email Anda.</div>
-        </form>
       </div>
-    </div>
-  </section>
+    </section>
 
-</div>
+    <!-- ============ SLIDE 4 — PROYEK 1 (UNGGULAN) ============ -->
+    <section class="slide" aria-label="Slide 4 — Proyek Pilihan 1">
+      <div class="slide-inner">
+        <div class="slide-top"><span class="eyebrow">Karya</span><span class="num">04 / 09</span></div>
+        <h2 class="title">Proyek Pilihan</h2>
+        <p class="subtitle">Proyek unggulan dengan studi kasus antarmuka — 1 / 3</p>
+        <div class="proj-grid proj-grid-featured">
+          <article class="proj proj-featured">
+            <button type="button" class="proj-featured-btn" id="posProject"
+              aria-label="Buka galeri desain PROX — Aplikasi POS">
+              <div class="proj-featured-media">
+                <img src="assets/images/pos/pos-kasir.webp" alt="PROX Aplikasi POS — tampilan kasir" loading="lazy"
+                  decoding="async" />
+                <span class="proj-badge">Unggulan</span>
+              </div>
+              <div class="proj-featured-body">
+                <div class="proj-featured-eyebrow">PROX · Laravel 13 &amp; Flutter</div>
+                <h3>PROX — Aplikasi POS</h3>
+                <p>Ekosistem ritel multi-gudang berbasis offline-first (SQLite &amp; delta synchronization) — mencakup
+                  kasir, pesanan, inventaris, pembelian, manajemen kas, retur, dan cetak struk Bluetooth.</p>
+                <div class="proj-featured-meta"><span>17 layar</span><span>6 modul</span><span>Offline-First</span>
+                </div>
+                <span class="proj-cta">Lihat semua desain <span aria-hidden="true">→</span></span>
+              </div>
+            </button>
+          </article>
+          <article class="proj proj-featured">
+            <button type="button" class="proj-featured-btn" id="dtkProject"
+              aria-label="Buka galeri desain DTK Mobile">
+              <div class="proj-featured-media">
+                <img src="assets/images/dtk.webp" alt="DTK Mobile — mockup aplikasi absensi" loading="lazy"
+                  decoding="async" />
+                <span class="proj-badge">Terbaru</span>
+              </div>
+              <div class="proj-featured-body">
+                <div class="proj-featured-eyebrow">DTK Mobile · Flutter</div>
+                <h3>DTK Mobile</h3>
+                <p>Aplikasi absensi karyawan PT Dharma Trikarya dengan deteksi fake GPS, 3 sesi kehadiran harian, dan
+                  penjadwalan penugasan lapangan — lengkap dengan swafoto, tanda tangan, riwayat, dan profil.</p>
+                <div class="proj-featured-meta"><span>31 layar</span><span>7 modul</span><span>UI/UX</span></div>
+                <span class="proj-cta">Lihat semua desain <span aria-hidden="true">→</span></span>
+              </div>
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<!-- ============ POS GALLERY MODAL ============ -->
-<div class="pos-modal" id="posModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Galeri desain aplikasi POS">
-  <div class="pos-modal-backdrop" data-close></div>
-  <div class="pos-modal-panel">
+    <!-- ============ SLIDE 5 — PROYEK 2 (APLIKASI MOBILE & TOKO ONLINE) ============ -->
+    <section class="slide" aria-label="Slide 5 — Proyek Pilihan 2">
+      <div class="slide-inner">
+        <div class="slide-top"><span class="eyebrow">Karya</span><span class="num">05 / 09</span></div>
+        <h2 class="title">Proyek Pilihan</h2>
+        <p class="subtitle">Aplikasi mobile &amp; toko online yang telah dirilis — 2 / 3</p>
+        <div class="proj-grid">
+          <article class="proj">
+            <div class="thumb"><img src="assets/images/harian-jogja.webp" alt="Harian Jogja" loading="lazy"
+                decoding="async" /></div>
+            <h3>Harian Jogja</h3>
+            <p>Aplikasi berita dengan autentikasi Google &amp; Apple, langganan e-paper, streaming radio/video, komentar,
+              dan live chat via Midtrans.</p>
+            <div class="proj-foot">
+              <div class="tech">Flutter · App Store</div>
+            </div>
+          </article>
+          <article class="proj">
+            <div class="thumb"><img src="assets/images/angplop.webp" alt="Angplop" loading="lazy" decoding="async" />
+            </div>
+            <h3>Angplop</h3>
+            <p>Aplikasi mobile yang dibangun secara end-to-end untuk pengelolaan keuangan pribadi, pasangan, hingga
+              keluarga.</p>
+            <div class="proj-foot">
+              <div class="tech">Flutter · Google Play</div>
+            </div>
+          </article>
+          <article class="proj">
+            <div class="thumb"><img src="assets/images/airren.webp" alt="Airren" loading="lazy" decoding="async" />
+            </div>
+            <h3>Airren</h3>
+            <p>Aplikasi manajemen pelanggan air PAM Sukoharjo dengan pencatatan tagihan, cetak struk pembayaran, serta
+              ekspor laporan Excel &amp; PDF.</p>
+            <div class="proj-foot">
+              <div class="tech">Flutter · Google Play</div>
+            </div>
+          </article>
+          <article class="proj">
+            <div class="thumb"><img src="assets/images/rumaroof.webp" alt="Rumaroof" loading="lazy" decoding="async" />
+            </div>
+            <h3>Rumaroof</h3>
+            <p>Aplikasi toko online aneka material bangunan mentah dan siap pakai milik CV Utama Baja yang dibangun
+              end-to-end.</p>
+            <div class="proj-foot">
+              <div class="tech">Java · Android · Google Play</div>
+            </div>
+          </article>
+          <article class="proj">
+            <div class="thumb"><img src="assets/images/bipanesia.webp" alt="Bipanesia" loading="lazy"
+                decoding="async" /></div>
+            <h3>Bipanesia</h3>
+            <p>Aplikasi mobile berbasis WebView bagi pelajar internasional yang ingin mempelajari Bahasa Indonesia secara
+              praktis.</p>
+            <div class="proj-foot">
+              <div class="tech">Flutter · WebView</div>
+            </div>
+          </article>
+          <article class="proj">
+            <div class="thumb"><img src="assets/images/andalasfarm.webp" alt="E-Commerce AndalasFarm" loading="lazy"
+                decoding="async" /></div>
+            <h3>E-Commerce AndalasFarm</h3>
+            <p>Platform toko online AndalasFarm untuk penjualan alat dan obat pertanian lengkap dengan alur pemesanan
+              dan flash sale.</p>
+            <div class="proj-foot">
+              <div class="tech">Laravel · Web</div>
+              <a class="proj-link" href="https://andalasfarm.com" target="_blank" rel="noopener noreferrer">Kunjungi
+                <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SLIDE 6 — PROYEK 3 (SISTEM WEB & CMS) ============ -->
+    <section class="slide" aria-label="Slide 6 — Proyek Pilihan 3">
+      <div class="slide-inner">
+        <div class="slide-top"><span class="eyebrow">Karya</span><span class="num">06 / 09</span></div>
+        <h2 class="title">Proyek Pilihan</h2>
+        <p class="subtitle">Sistem manajemen produksi &amp; CMS berbasis web — 3 / 3</p>
+        <div class="proj-grid proj-grid-2">
+          <article class="proj">
+            <div class="thumb"><img src="assets/images/djsport.webp" alt="CMS DJSport" loading="lazy"
+                decoding="async" /></div>
+            <h3>CMS DJSport</h3>
+            <p>Aplikasi web untuk mengelola proses produksi toko apparel, dari pesanan hingga barang jadi: pencatatan
+              pesanan, status produksi, stok bahan baku, dan pengiriman produk akhir.</p>
+            <div class="proj-foot">
+              <div class="tech">Laravel · CMS</div>
+            </div>
+          </article>
+          <article class="proj">
+            <div class="thumb"><img src="assets/images/djcustomer.webp" alt="Customer DJSport" loading="lazy"
+                decoding="async" /></div>
+            <h3>Customer DJSport</h3>
+            <p>Portal khusus pelanggan DJ Sport untuk memantau progres produksi pesanan pakaian olahraga secara
+              real-time.</p>
+            <div class="proj-foot">
+              <div class="tech">Laravel · Portal</div>
+            </div>
+          </article>
+          <article class="proj">
+            <div class="thumb"><img src="assets/images/djemployee.webp" alt="Employee DJSport" loading="lazy"
+                decoding="async" /></div>
+            <h3>Employee DJSport</h3>
+            <p>Portal internal karyawan DJ Sport yang bertugas memproduksi pesanan pelanggan untuk memperbarui progres
+              pekerjaan hingga selesai.</p>
+            <div class="proj-foot">
+              <div class="tech">Laravel · Portal</div>
+            </div>
+          </article>
+          <article class="proj">
+            <div class="thumb"><img src="assets/images/cmsandalas.webp" alt="CMS AndalasFarm" loading="lazy"
+                decoding="async" /></div>
+            <h3>CMS AndalasFarm</h3>
+            <p>Sistem administrasi web untuk mengelola inventaris terintegrasi, kategori produk, penetapan harga, flash
+              sale, dan pesanan toko AndalasFarm.</p>
+            <div class="proj-foot">
+              <div class="tech">Laravel · CMS</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SLIDE 7 — KEAHLIAN ============ -->
+    <section class="slide" aria-label="Slide 7 — Keahlian">
+      <div class="slide-inner">
+        <div class="slide-top"><span class="eyebrow">Kompetensi</span><span class="num">07 / 09</span></div>
+        <h2 class="title">Keahlian</h2>
+        <p class="subtitle">Teknologi utama yang saya gunakan dalam pengembangan produk</p>
+        <div class="skills">
+          <div class="skill"><span class="ic"><img src="assets/images/flutter_logo.webp" alt="" loading="lazy"
+                decoding="async" /></span><b>Dart &amp; Flutter</b></div>
+          <div class="skill"><span class="ic"><img src="assets/images/laravel.webp" alt="" loading="lazy"
+                decoding="async" /></span><b>Laravel</b></div>
+          <div class="skill"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
+                <path d="M9.5 17.5c-2.8.5-2.2 1.8.8 2 3.2.2 6-.3 6.7-1.1" stroke="#E76F00" stroke-width="1.6"
+                  stroke-linecap="round" />
+                <path d="M8 14.2c-2.2.4-1.5 1.4 1.2 1.6 2.8.2 5-.2 5.6-.8" stroke="#5382A1" stroke-width="1.6"
+                  stroke-linecap="round" />
+                <path d="M12.6 4.2c.9 1.6-2.4 2.8-1.8 4.4.4 1.1 2.2 1.7 1.3 3.2" stroke="#E76F00" stroke-width="1.6"
+                  stroke-linecap="round" />
+                <path d="M15.2 6.2c.4 1-.9 1.8-.5 2.8.3.7 1.3 1.1.8 2.1" stroke="#5382A1" stroke-width="1.5"
+                  stroke-linecap="round" />
+                <path d="M16.5 12.2c1.4-.3 2.5.4 2.2 1.4-.2.8-1.4 1.3-2.5 1.2" stroke="#5382A1" stroke-width="1.5"
+                  stroke-linecap="round" />
+              </svg></span><b>Java</b></div>
+          <div class="skill"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke="#21759B" stroke-width="1.8" />
+                <path d="M6.4 9.2h2.2l2.2 6.8 1.9-5.5M11.7 9.2h2l2.1 6.8 1.6-5.2c.3-.9.1-1.6-.4-2.2" stroke="#21759B"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg></span><b>WordPress</b></div>
+          <div class="skill"><span class="ic"><img src="assets/images/html.webp" alt="" loading="lazy"
+                decoding="async" /></span><b>HTML</b></div>
+          <div class="skill"><span class="ic"><img src="assets/images/css.webp" alt="" loading="lazy"
+                decoding="async" /></span><b>CSS</b></div>
+          <div class="skill"><span class="ic"><img src="assets/images/js.webp" alt="" loading="lazy"
+                decoding="async" /></span><b>JavaScript</b></div>
+          <div class="skill"><span class="ic"><img src="assets/images/git.webp" alt="" loading="lazy"
+                decoding="async" /></span><b>Git</b></div>
+          <div class="skill"><span class="ic"><img src="assets/images/firebase.webp" alt="" loading="lazy"
+                decoding="async" /></span><b>Firebase</b></div>
+          <div class="skill"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
+                <ellipse cx="12" cy="6.5" rx="7" ry="2.8" stroke="#00618A" stroke-width="1.7" />
+                <path d="M5 6.5v5c0 1.55 3.13 2.8 7 2.8s7-1.25 7-2.8v-5" stroke="#00618A" stroke-width="1.7" />
+                <path d="M5 11.5v5c0 1.55 3.13 2.8 7 2.8s7-1.25 7-2.8v-5" stroke="#E48E00" stroke-width="1.7" />
+              </svg></span><b>MySQL &amp; SQLite</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SLIDE 8 — PROYEK SERU ============ -->
+    <section class="slide" aria-label="Slide 8 — Proyek Seru">
+      <div class="slide-inner">
+        <div class="slide-top"><span class="eyebrow">Sampingan</span><span class="num">08 / 09</span></div>
+        <h2 class="title">Proyek Seru</h2>
+        <p class="subtitle">Eksplorasi arsitektur &amp; proyek sampingan di waktu luang</p>
+        <div class="fun-grid">
+          <article class="fun">
+            <div class="fun-video">
+              <button type="button" class="fun-poster-btn" aria-label="Putar video demo Cinema Verse"
+                data-title="Cinema Verse — demo"
+                data-embed="https://drive.google.com/file/d/1j5YcsrtMJkPRlS7mEwnTEBaEmhkJePlO/preview">
+                <img src="assets/images/video-cinema.webp" alt="Cinema Verse — pratinjau demo" loading="lazy"
+                  decoding="async" />
+                <span class="fun-play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"
+                    fill="currentColor">
+                    <path d="M8 5.5v13l11-6.5-11-6.5z" />
+                  </svg></span>
+              </button>
+            </div>
+            <h3>Cinema Verse</h3>
+            <p>Aplikasi eksplorasi film dari TMDB API, menerapkan Clean Architecture dan Riverpod Generator untuk
+              manajemen state.</p>
+            <div class="tech">Flutter · Clean Architecture · Riverpod</div>
+          </article>
+          <article class="fun">
+            <div class="fun-video">
+              <button type="button" class="fun-poster-btn" aria-label="Putar video demo UDB Berita"
+                data-title="UDB Berita — demo"
+                data-embed="https://drive.google.com/file/d/1jKxN51q4w6tHiqDFoRVjSdpZZEcf-sNs/preview">
+                <img src="assets/images/video-udb.webp" alt="UDB Berita — pratinjau demo" loading="lazy"
+                  decoding="async" />
+                <span class="fun-play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"
+                    fill="currentColor">
+                    <path d="M8 5.5v13l11-6.5-11-6.5z" />
+                  </svg></span>
+              </button>
+            </div>
+            <h3>UDB Berita</h3>
+            <p>Aplikasi berita dan artikel kampus untuk mahasiswa Universitas Duta Bangsa.</p>
+            <div class="tech">Flutter · Dart</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SLIDE 9 — KONTAK ============ -->
+    <section class="slide" aria-label="Slide 9 — Kontak">
+      <div class="slide-inner">
+        <div class="slide-top"><span class="eyebrow">Kontak</span><span class="num">09 / 09</span></div>
+        <div class="contact">
+          <div>
+            <h2>Mari Berkolaborasi</h2>
+            <p class="sub">Kirim pesan atau terhubung langsung melalui kanal di bawah ini.</p>
+            <div class="contact-actions">
+              <button type="button" class="copy-email" id="copyEmailBtn"
+                aria-label="Salin alamat email verdiyantorky123@gmail.com">
+                <span>verdiyantorky123@gmail.com</span>
+                <span class="copy-pill" id="copyPill">Salin email</span>
+              </button>
+              <div class="contact-links">
+                <a class="contact-link" href="https://www.linkedin.com/in/rickyverdiyanto/" target="_blank"
+                  rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+                <a class="contact-link" href="https://github.com/rickyricko302" target="_blank"
+                  rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                <a class="contact-link primary"
+                  href="assets/docs/CV%20Ricky%20Verdiyanto%20(Bahasa%20Indonesia)%20(1).pdf"
+                  download="CV-Ricky-Verdiyanto.pdf" target="_blank" rel="noopener noreferrer">Unduh CV (PDF) <span
+                    aria-hidden="true">↓</span></a>
+              </div>
+            </div>
+            <p class="note">Form di samping mengirim pesan lewat aplikasi email Anda. Jika aplikasi email belum diatur,
+              Anda dapat menyalin alamat email di atas.</p>
+          </div>
+          <form class="mail" id="contactForm" aria-label="Form kirim pesan email" novalidate>
+            <div class="field-row">
+              <div class="field"><label for="nama">Nama</label><input id="nama" name="nama" type="text"
+                  autocomplete="name" placeholder="Nama lengkap" required /></div>
+              <div class="field"><label for="email">Email</label><input id="email" name="email" type="email"
+                  autocomplete="email" autocorrect="off" autocapitalize="none" spellcheck="false"
+                  placeholder="nama@email.com" required /></div>
+            </div>
+            <div class="field"><label for="subjek">Subjek</label><input id="subjek" name="subjek" type="text"
+                placeholder="Tentang apa?" required /></div>
+            <div class="field"><label for="pesan">Pesan</label><textarea id="pesan" name="pesan"
+                placeholder="Ceritakan ide proyek atau kebutuhan Anda..." required></textarea></div>
+            <button class="submit" type="submit">Kirim Pesan</button>
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+            <div class="form-note">Pesan akan dibuka di aplikasi email bawaan perangkat Anda.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ GALLERY MODAL (<dialog>) ============ -->
+  <dialog class="pos-modal" id="posModal" closedby="any" aria-labelledby="posTitle">
     <header class="pos-modal-head">
       <div class="pos-brand">
-        <span class="pos-logo" id="posLogo">POS</span>
+        <span class="pos-logo" id="posLogo" aria-hidden="true">POS</span>
         <div>
-          <h2 id="posTitle">Aplikasi POS</h2>
+          <h2 id="posTitle">PROX — Aplikasi POS</h2>
           <p id="posSubtitle">Point of Sale · 17 layar · 6 modul</p>
         </div>
       </div>
-      <button class="pos-close" data-close aria-label="Tutup galeri"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <button type="button" class="pos-close" id="posModalClose" aria-label="Tutup galeri"><svg viewBox="0 0 24 24"
+          width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg></button>
     </header>
     <div class="pos-tabs" id="posTabs" role="tablist" aria-label="Kategori desain"></div>
     <div class="pos-gallery" id="posGallery"></div>
-  </div>
-  <div class="pos-lightbox" id="posLightbox" aria-hidden="true">
-    <button class="pos-lb-close" aria-label="Tutup pratinjau"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    <button class="pos-lb-nav prev" aria-label="Desain sebelumnya">&#8592;</button>
+  </dialog>
+
+  <!-- ============ LIGHTBOX (<dialog>) ============ -->
+  <dialog class="pos-lightbox" id="posLightbox" closedby="any" aria-label="Pratinjau gambar desain">
+    <button type="button" class="pos-lb-close" id="posLbClose" aria-label="Tutup pratinjau"><svg viewBox="0 0 24 24"
+        width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" />
+      </svg></button>
+    <button type="button" class="pos-lb-nav prev" aria-label="Desain sebelumnya">&#8592;</button>
     <figure class="pos-lb-figure">
       <img id="posLbImg" src="" alt="" />
       <figcaption id="posLbCap"></figcaption>
     </figure>
-    <button class="pos-lb-nav next" aria-label="Desain berikutnya">&#8594;</button>
+    <button type="button" class="pos-lb-nav next" aria-label="Desain berikutnya">&#8594;</button>
     <div class="pos-lb-count" id="posLbCount"></div>
-  </div>
-</div>
+  </dialog>
 
-<!-- ============ NAV ============ -->
-<div class="nav" role="navigation" aria-label="Navigasi slide">
-  <button class="arrow prev" id="prev" aria-label="Slide sebelumnya">←</button>
-  <div class="dots" id="dots"></div>
-  <button class="arrow next" id="next" aria-label="Slide berikutnya">→</button>
-</div>
+  <!-- ============ NAV ============ -->
+  <nav class="nav" aria-label="Slide">
+    <button type="button" class="arrow prev" id="prev" aria-label="Slide sebelumnya">←</button>
+    <div class="dots" id="dots"></div>
+    <button type="button" class="arrow next" id="next" aria-label="Slide berikutnya">→</button>
+  </nav>
 
-<script>
-/* ===== Konfigurasi email (ganti dengan email tujuan) ===== */
-const CONTACT_EMAIL = "you@example.com";
+  <script>
+    /* ===== Konfigurasi email ===== */
+    const CONTACT_EMAIL = "verdiyantorky123@gmail.com";
 
-const deck = document.getElementById("deck");
-const slides = Array.from(deck.querySelectorAll(".slide"));
-const dotsWrap = document.getElementById("dots");
-const prevBtn = document.getElementById("prev");
-const nextBtn = document.getElementById("next");
-let index = 0;
+    const deck = document.getElementById("deck");
+    const slides = Array.from(deck.querySelectorAll(".slide"));
+    const dotsWrap = document.getElementById("dots");
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+    let index = 0;
 
-/* dots */
-slides.forEach((_, i) => {
-  const b = document.createElement("button");
-  b.setAttribute("aria-label", "Ke slide " + (i + 1));
-  b.addEventListener("click", () => goTo(i));
-  dotsWrap.appendChild(b);
-});
-const dotEls = Array.from(dotsWrap.children);
+    /* dots */
+    slides.forEach((_, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("aria-label", "Ke slide " + (i + 1));
+      b.addEventListener("click", () => goTo(i));
+      dotsWrap.appendChild(b);
+    });
+    const dotEls = Array.from(dotsWrap.children);
 
-function updateUI(){
-  dotEls.forEach((d, i) => d.classList.toggle("active", i === index));
-  prevBtn.disabled = index === 0;
-  nextBtn.disabled = index === slides.length - 1;
-}
+    function updateUI() {
+      dotEls.forEach((d, i) => {
+        d.classList.toggle("active", i === index);
+        if (i === index) d.setAttribute("aria-current", "step");
+        else d.removeAttribute("aria-current");
+      });
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === slides.length - 1;
+    }
 
-function goTo(i){
-  index = Math.max(0, Math.min(i, slides.length - 1));
-  deck.scrollTo({ left: index * deck.clientWidth, behavior: "smooth" });
-  updateUI();
-}
+    let programmaticScrollUntil = 0;
 
-/* track scroll */
-let scrollTimer;
-deck.addEventListener("scroll", () => {
-  clearTimeout(scrollTimer);
-  scrollTimer = setTimeout(() => {
-    const i = Math.round(deck.scrollLeft / deck.clientWidth);
-    if (i !== index){ index = Math.max(0, Math.min(i, slides.length - 1)); updateUI(); }
-  }, 70);
-}, { passive:true });
+    function goTo(i) {
+      index = Math.max(0, Math.min(i, slides.length - 1));
+      programmaticScrollUntil = performance.now() + 650;
+      deck.scrollTo({ left: index * deck.clientWidth, behavior: "smooth" });
+      updateUI();
+    }
 
-prevBtn.addEventListener("click", () => goTo(index - 1));
-nextBtn.addEventListener("click", () => goTo(index + 1));
+    /* sinkronkan slide aktif setelah scroll-snap berhenti (cegah lompatan di tengah animasi) */
+    function syncActiveSlide() {
+      if (performance.now() < programmaticScrollUntil) return;
+      const i = Math.round(deck.scrollLeft / deck.clientWidth);
+      if (i !== index) {
+        index = Math.max(0, Math.min(i, slides.length - 1));
+        updateUI();
+      }
+    }
 
-/* keyboard */
-window.addEventListener("keydown", (e) => {
-  if (document.getElementById("posModal").classList.contains("open")) return;
-  if (["INPUT","TEXTAREA"].includes(document.activeElement.tagName)) return;
-  if (e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === "PageDown"){ e.preventDefault(); goTo(index + 1); }
-  if (e.key === "ArrowLeft" || e.key === "ArrowUp" || e.key === "PageUp"){ e.preventDefault(); goTo(index - 1); }
-  if (e.key === "Home"){ e.preventDefault(); goTo(0); }
-  if (e.key === "End"){ e.preventDefault(); goTo(slides.length - 1); }
-});
+    if ("onscrollsnapchange" in HTMLElement.prototype) {
+      deck.addEventListener("scrollsnapchange", (e) => {
+        const i = slides.indexOf(e.snapTargetInline);
+        if (i !== -1 && i !== index) {
+          index = i;
+          updateUI();
+        }
+      });
+    } else {
+      const snapObserver = new IntersectionObserver((entries) => {
+        if (performance.now() < programmaticScrollUntil) return;
+        for (const entry of entries) {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.75) {
+            const i = slides.indexOf(entry.target);
+            if (i !== -1 && i !== index) {
+              index = i;
+              updateUI();
+            }
+          }
+        }
+      }, { root: deck, threshold: 0.75 });
+      slides.forEach((s) => snapObserver.observe(s));
 
-/* wheel: satu gerakan = satu slide (desktop), kecuali slide bisa di-scroll vertikal */
-let wheelLock = false;
-deck.addEventListener("wheel", (e) => {
-  if (wheelLock) return;
-  const s = slides[index];
-  if (s.scrollHeight > s.clientHeight + 4) return; /* biarkan scroll vertikal di dalam slide */
-  const d = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
-  if (Math.abs(d) < 6) return;
-  e.preventDefault();
-  goTo(index + (d > 0 ? 1 : -1));
-  wheelLock = true;
-  setTimeout(() => { wheelLock = false; }, 650);
-}, { passive:false });
+      let scrollTimer;
+      deck.addEventListener("scroll", () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(syncActiveSlide, 180);
+      }, { passive: true });
+    }
 
-/* keep alignment on resize */
-let rTimer;
-window.addEventListener("resize", () => {
-  clearTimeout(rTimer);
-  rTimer = setTimeout(() => { deck.scrollLeft = index * deck.clientWidth; }, 120);
-});
+    deck.addEventListener("scrollend", () => {
+      programmaticScrollUntil = 0;
+      syncActiveSlide();
+    });
 
-/* also allow focus outline navigation via clicks on arrows */
-updateUI();
+    prevBtn.addEventListener("click", () => goTo(index - 1));
+    nextBtn.addEventListener("click", () => goTo(index + 1));
 
-/* ===== Design galleries (POS & DTK) ===== */
-const GALLERIES = {
-  pos: {
-    logo:"POS", accent:"#B20403", title:"Aplikasi POS",
-    subtitle:"Point of Sale · 17 layar · 6 modul",
-    aspect:"1133 / 744", basis:"250px",
-    cats:["Semua","POS","Pesanan","Pembelian","Kontak","Manajemen Kas","Retur"],
-    screens:[
-      { cat:"POS", title:"Kasir — Katalog Produk", src:"assets/images/pos/pos-kasir.webp" },
-      { cat:"POS", title:"Kasir — Keranjang & Checkout", src:"assets/images/pos/pos-checkout.webp" },
-      { cat:"POS", title:"Pembayaran Tunai", src:"assets/images/pos/pos-pembayaran.webp" },
-      { cat:"POS", title:"Checkout — Ringkasan", src:"assets/images/pos/pos-checkout-2.webp" },
-      { cat:"POS", title:"Transaksi Berhasil", src:"assets/images/pos/pos-sukses.webp" },
-      { cat:"Pesanan", title:"Daftar Pesanan", src:"assets/images/pos/pesanan-list.webp" },
-      { cat:"Pesanan", title:"Detail Pesanan", src:"assets/images/pos/pesanan-detail.webp" },
-      { cat:"Pembelian", title:"Daftar Pembelian", src:"assets/images/pos/pembelian.webp" },
-      { cat:"Kontak", title:"Manajemen Kontak", src:"assets/images/pos/kontak.webp" },
-      { cat:"Manajemen Kas", title:"Manajemen Kas", src:"assets/images/pos/kas.webp" },
-      { cat:"Manajemen Kas", title:"Riwayat Kas", src:"assets/images/pos/kas-2.webp" },
-      { cat:"Retur", title:"Retur — Cari Pesanan", src:"assets/images/pos/retur-1.webp" },
-      { cat:"Retur", title:"Retur — Pilih Item", src:"assets/images/pos/retur-2.webp" },
-      { cat:"Retur", title:"Retur — Detail Pengembalian", src:"assets/images/pos/retur-3.webp" },
-      { cat:"Retur", title:"Retur — Konfirmasi", src:"assets/images/pos/retur-4.webp" },
-      { cat:"Retur", title:"Retur — Daftar Retur", src:"assets/images/pos/retur-5.webp" },
-      { cat:"Retur", title:"Retur — Selesai", src:"assets/images/pos/retur-6.webp" }
-    ]
-  },
-  dtk: {
-    logo:"DTK", accent:"#EA4A3E", title:"DTK Mobile",
-    subtitle:"Absensi Karyawan · 31 layar · 7 modul",
-    aspect:"375 / 812", basis:"172px",
-    cats:["Semua","Autentikasi","Error","Profil","Absensi","Riwayat Absensi","Jadwal Riksa"],
-    screens:[
-      { cat:"Autentikasi", title:"Login — Selamat Datang", src:"assets/images/dtk/auth-1.webp" },
-      { cat:"Autentikasi", title:"Lupa Password", src:"assets/images/dtk/auth-2.webp" },
-      { cat:"Autentikasi", title:"Periksa Email", src:"assets/images/dtk/auth-3.webp" },
-      { cat:"Autentikasi", title:"Atur Password Baru", src:"assets/images/dtk/auth-4.webp" },
-      { cat:"Autentikasi", title:"Password Berhasil Diubah", src:"assets/images/dtk/auth-5.webp" },
-      { cat:"Error", title:"Tidak Ada Koneksi Internet", src:"assets/images/dtk/error-1.webp" },
-      { cat:"Error", title:"Terjadi Kesalahan", src:"assets/images/dtk/error-2.webp" },
-      { cat:"Error", title:"Coming Soon", src:"assets/images/dtk/error-3.webp" },
-      { cat:"Error", title:"Kesalahan Lokasi", src:"assets/images/dtk/error-4.webp" },
-      { cat:"Profil", title:"Profil Saya", src:"assets/images/dtk/profil-1.webp" },
-      { cat:"Profil", title:"Menu Profil", src:"assets/images/dtk/profil-2.webp" },
-      { cat:"Profil", title:"Detail Profil", src:"assets/images/dtk/profil-3.webp" },
-      { cat:"Profil", title:"Detail Profil — Lanjutan", src:"assets/images/dtk/profil-4.webp" },
-      { cat:"Profil", title:"Ganti Password", src:"assets/images/dtk/profil-5.webp" },
-      { cat:"Absensi", title:"Absensi — Riwayat Hari Ini (1)", src:"assets/images/dtk/absensi-1.webp" },
-      { cat:"Absensi", title:"Absensi — Riwayat Hari Ini (2)", src:"assets/images/dtk/absensi-2.webp" },
-      { cat:"Absensi", title:"Absensi — Lokasi Terkini", src:"assets/images/dtk/absensi-3.webp" },
-      { cat:"Absensi", title:"Absensi — Foto & Tanda Tangan", src:"assets/images/dtk/absensi-4.webp" },
-      { cat:"Riwayat Absensi", title:"Riwayat Absensi Pribadi", src:"assets/images/dtk/riwayat-pribadi-1.webp" },
-      { cat:"Riwayat Absensi", title:"Riwayat Absensi — Maret", src:"assets/images/dtk/riwayat-pribadi-2.webp" },
-      { cat:"Riwayat Absensi", title:"Riwayat Absensi Karyawan Lain", src:"assets/images/dtk/riwayat-lain-1.webp" },
-      { cat:"Jadwal Riksa", title:"Jadwal Riksa — Kalender", src:"assets/images/dtk/jadwal-1.webp" },
-      { cat:"Jadwal Riksa", title:"Jadwal Riksa — Notifikasi", src:"assets/images/dtk/jadwal-2.webp" },
-      { cat:"Jadwal Riksa", title:"Detail Jadwal Riksa", src:"assets/images/dtk/jadwal-3.webp" },
-      { cat:"Jadwal Riksa", title:"Detail Jadwal — Catatan", src:"assets/images/dtk/jadwal-4.webp" },
-      { cat:"Jadwal Riksa", title:"Catatan — Daftar", src:"assets/images/dtk/jadwal-5.webp" },
-      { cat:"Jadwal Riksa", title:"Catatan — Tambah", src:"assets/images/dtk/jadwal-6.webp" },
-      { cat:"Jadwal Riksa", title:"Catatan — Edit", src:"assets/images/dtk/jadwal-7.webp" },
-      { cat:"Jadwal Riksa", title:"Catatan — Kosong", src:"assets/images/dtk/jadwal-8.webp" },
-      { cat:"Jadwal Riksa", title:"Catatan — Keyboard", src:"assets/images/dtk/jadwal-9.webp" },
-      { cat:"Jadwal Riksa", title:"Detail Jadwal — Dokumen", src:"assets/images/dtk/jadwal-10.webp" }
-    ]
-  }
-};
+    const galleryModal = document.getElementById("posModal");
+    const galleryLightbox = document.getElementById("posLightbox");
 
-const galleryModal = document.getElementById("posModal");
-const galleryTabs = document.getElementById("posTabs");
-const galleryGrid = document.getElementById("posGallery");
-const galleryLightbox = document.getElementById("posLightbox");
-const lbImg = document.getElementById("posLbImg");
-const lbCap = document.getElementById("posLbCap");
-const lbCount = document.getElementById("posLbCount");
-const logoEl = document.getElementById("posLogo");
-const titleEl = document.getElementById("posTitle");
-const subtitleEl = document.getElementById("posSubtitle");
-const lbNavPrev = galleryLightbox.querySelector(".pos-lb-nav.prev");
-const lbNavNext = galleryLightbox.querySelector(".pos-lb-nav.next");
-const lbClose = galleryLightbox.querySelector(".pos-lb-close");
+    /* keyboard (navigasi horizontal slide; panah atas/bawah tetap untuk scroll vertikal di dalam slide) */
+    window.addEventListener("keydown", (e) => {
+      if (galleryModal.open || galleryLightbox.open) return;
+      if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) return;
+      if (e.key === "ArrowRight") { e.preventDefault(); goTo(index + 1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); goTo(index - 1); }
+      if (e.key === "Home") { e.preventDefault(); goTo(0); }
+      if (e.key === "End") { e.preventDefault(); goTo(slides.length - 1); }
+    });
 
-let activeGallery = null;
-let activeCat = "Semua";
-let visibleShots = [];
-let lbIndex = 0;
+    /* keep alignment on resize */
+    let rTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(rTimer);
+      rTimer = setTimeout(() => { deck.scrollLeft = index * deck.clientWidth; }, 120);
+    });
 
-function isOpen(){ return galleryModal.classList.contains("open"); }
+    updateUI();
 
-function renderTabs(){
-  galleryTabs.innerHTML = "";
-  activeGallery.cats.forEach((cat) => {
-    const n = cat === "Semua" ? activeGallery.screens.length : activeGallery.screens.filter(s => s.cat === cat).length;
-    const b = document.createElement("button");
-    b.className = "pos-tab" + (cat === activeCat ? " active" : "");
-    b.setAttribute("role","tab");
-    b.setAttribute("aria-selected", cat === activeCat);
-    b.innerHTML = cat + '<span class="count">' + n + "</span>";
-    b.addEventListener("click", () => { activeCat = cat; renderTabs(); renderGrid(); });
-    galleryTabs.appendChild(b);
-  });
-}
+    /* ===== Design galleries (PROX POS & DTK) ===== */
+    const GALLERIES = {
+      pos: {
+        logo: "POS", accent: "#B20403", title: "PROX — Aplikasi POS",
+        subtitle: "Point of Sale · 17 layar · 6 modul",
+        aspect: "1133 / 744", basis: "250px",
+        cats: ["Semua", "POS", "Pesanan", "Pembelian", "Kontak", "Manajemen Kas", "Retur"],
+        screens: [
+          { cat: "POS", title: "Kasir — Katalog Produk", src: "assets/images/pos/pos-kasir.webp" },
+          { cat: "POS", title: "Kasir — Keranjang & Checkout", src: "assets/images/pos/pos-checkout.webp" },
+          { cat: "POS", title: "Pembayaran Tunai", src: "assets/images/pos/pos-pembayaran.webp" },
+          { cat: "POS", title: "Checkout — Ringkasan", src: "assets/images/pos/pos-checkout-2.webp" },
+          { cat: "POS", title: "Transaksi Berhasil", src: "assets/images/pos/pos-sukses.webp" },
+          { cat: "Pesanan", title: "Daftar Pesanan", src: "assets/images/pos/pesanan-list.webp" },
+          { cat: "Pesanan", title: "Detail Pesanan", src: "assets/images/pos/pesanan-detail.webp" },
+          { cat: "Pembelian", title: "Daftar Pembelian", src: "assets/images/pos/pembelian.webp" },
+          { cat: "Kontak", title: "Manajemen Kontak", src: "assets/images/pos/kontak.webp" },
+          { cat: "Manajemen Kas", title: "Manajemen Kas", src: "assets/images/pos/kas.webp" },
+          { cat: "Manajemen Kas", title: "Riwayat Kas", src: "assets/images/pos/kas-2.webp" },
+          { cat: "Retur", title: "Retur — Cari Pesanan", src: "assets/images/pos/retur-1.webp" },
+          { cat: "Retur", title: "Retur — Pilih Item", src: "assets/images/pos/retur-2.webp" },
+          { cat: "Retur", title: "Retur — Detail Pengembalian", src: "assets/images/pos/retur-3.webp" },
+          { cat: "Retur", title: "Retur — Konfirmasi", src: "assets/images/pos/retur-4.webp" },
+          { cat: "Retur", title: "Retur — Daftar Retur", src: "assets/images/pos/retur-5.webp" },
+          { cat: "Retur", title: "Retur — Selesai", src: "assets/images/pos/retur-6.webp" }
+        ]
+      },
+      dtk: {
+        logo: "DTK", accent: "#EA4A3E", title: "DTK Mobile",
+        subtitle: "Absensi Karyawan · 31 layar · 7 modul",
+        aspect: "375 / 812", basis: "172px",
+        cats: ["Semua", "Autentikasi", "Error", "Profil", "Absensi", "Riwayat Absensi", "Jadwal Riksa"],
+        screens: [
+          { cat: "Autentikasi", title: "Login — Selamat Datang", src: "assets/images/dtk/auth-1.webp" },
+          { cat: "Autentikasi", title: "Lupa Password", src: "assets/images/dtk/auth-2.webp" },
+          { cat: "Autentikasi", title: "Periksa Email", src: "assets/images/dtk/auth-3.webp" },
+          { cat: "Autentikasi", title: "Atur Password Baru", src: "assets/images/dtk/auth-4.webp" },
+          { cat: "Autentikasi", title: "Password Berhasil Diubah", src: "assets/images/dtk/auth-5.webp" },
+          { cat: "Error", title: "Tidak Ada Koneksi Internet", src: "assets/images/dtk/error-1.webp" },
+          { cat: "Error", title: "Terjadi Kesalahan", src: "assets/images/dtk/error-2.webp" },
+          { cat: "Error", title: "Coming Soon", src: "assets/images/dtk/error-3.webp" },
+          { cat: "Error", title: "Kesalahan Lokasi", src: "assets/images/dtk/error-4.webp" },
+          { cat: "Profil", title: "Profil Saya", src: "assets/images/dtk/profil-1.webp" },
+          { cat: "Profil", title: "Menu Profil", src: "assets/images/dtk/profil-2.webp" },
+          { cat: "Profil", title: "Detail Profil", src: "assets/images/dtk/profil-3.webp" },
+          { cat: "Profil", title: "Detail Profil — Lanjutan", src: "assets/images/dtk/profil-4.webp" },
+          { cat: "Profil", title: "Ganti Password", src: "assets/images/dtk/profil-5.webp" },
+          { cat: "Absensi", title: "Absensi — Riwayat Hari Ini (1)", src: "assets/images/dtk/absensi-1.webp" },
+          { cat: "Absensi", title: "Absensi — Riwayat Hari Ini (2)", src: "assets/images/dtk/absensi-2.webp" },
+          { cat: "Absensi", title: "Absensi — Lokasi Terkini", src: "assets/images/dtk/absensi-3.webp" },
+          { cat: "Absensi", title: "Absensi — Foto & Tanda Tangan", src: "assets/images/dtk/absensi-4.webp" },
+          { cat: "Riwayat Absensi", title: "Riwayat Absensi Pribadi", src: "assets/images/dtk/riwayat-pribadi-1.webp" },
+          { cat: "Riwayat Absensi", title: "Riwayat Absensi — Maret", src: "assets/images/dtk/riwayat-pribadi-2.webp" },
+          { cat: "Riwayat Absensi", title: "Riwayat Absensi Karyawan Lain", src: "assets/images/dtk/riwayat-lain-1.webp" },
+          { cat: "Jadwal Riksa", title: "Jadwal Riksa — Kalender", src: "assets/images/dtk/jadwal-1.webp" },
+          { cat: "Jadwal Riksa", title: "Jadwal Riksa — Notifikasi", src: "assets/images/dtk/jadwal-2.webp" },
+          { cat: "Jadwal Riksa", title: "Detail Jadwal Riksa", src: "assets/images/dtk/jadwal-3.webp" },
+          { cat: "Jadwal Riksa", title: "Detail Jadwal — Catatan", src: "assets/images/dtk/jadwal-4.webp" },
+          { cat: "Jadwal Riksa", title: "Catatan — Daftar", src: "assets/images/dtk/jadwal-5.webp" },
+          { cat: "Jadwal Riksa", title: "Catatan — Tambah", src: "assets/images/dtk/jadwal-6.webp" },
+          { cat: "Jadwal Riksa", title: "Catatan — Edit", src: "assets/images/dtk/jadwal-7.webp" },
+          { cat: "Jadwal Riksa", title: "Catatan — Kosong", src: "assets/images/dtk/jadwal-8.webp" },
+          { cat: "Jadwal Riksa", title: "Catatan — Keyboard", src: "assets/images/dtk/jadwal-9.webp" },
+          { cat: "Jadwal Riksa", title: "Detail Jadwal — Dokumen", src: "assets/images/dtk/jadwal-10.webp" }
+        ]
+      }
+    };
 
-function renderGrid(){
-  visibleShots = activeCat === "Semua" ? activeGallery.screens.slice() : activeGallery.screens.filter(s => s.cat === activeCat);
-  galleryGrid.innerHTML = "";
-  visibleShots.forEach((shot, i) => {
-    const fig = document.createElement("figure");
-    fig.className = "pos-shot";
-    fig.style.animationDelay = Math.min(i * 45, 360) + "ms";
-    fig.innerHTML = '<img src="' + shot.src + '" alt="' + shot.title + '" loading="lazy" decoding="async" />' +
-                    "<figcaption>" + shot.cat + "</figcaption>";
-    fig.addEventListener("click", () => openLightbox(i));
-    galleryGrid.appendChild(fig);
-  });
-}
+    const galleryTabs = document.getElementById("posTabs");
+    const galleryGrid = document.getElementById("posGallery");
+    const lbImg = document.getElementById("posLbImg");
+    const lbCap = document.getElementById("posLbCap");
+    const lbCount = document.getElementById("posLbCount");
+    const logoEl = document.getElementById("posLogo");
+    const titleEl = document.getElementById("posTitle");
+    const subtitleEl = document.getElementById("posSubtitle");
+    const modalCloseBtn = document.getElementById("posModalClose");
+    const lbCloseBtn = document.getElementById("posLbClose");
+    const lbNavPrev = galleryLightbox.querySelector(".pos-lb-nav.prev");
+    const lbNavNext = galleryLightbox.querySelector(".pos-lb-nav.next");
 
-function openLightbox(i){
-  lbIndex = i;
-  updateLightbox();
-  galleryLightbox.classList.add("open");
-  galleryLightbox.setAttribute("aria-hidden","false");
-}
-function updateLightbox(){
-  const shot = visibleShots[lbIndex];
-  if (!shot) return;
-  lbImg.src = shot.src;
-  lbImg.alt = shot.title;
-  lbCap.textContent = shot.title;
-  lbCount.textContent = (lbIndex + 1) + " / " + visibleShots.length;
-}
-function closeLightbox(){
-  galleryLightbox.classList.remove("open");
-  galleryLightbox.setAttribute("aria-hidden","true");
-}
-function stepLightbox(dir){
-  if (!visibleShots.length) return;
-  lbIndex = (lbIndex + dir + visibleShots.length) % visibleShots.length;
-  updateLightbox();
-}
+    let activeGallery = null;
+    let activeCat = "Semua";
+    let visibleShots = [];
+    let lbIndex = 0;
 
-function openGallery(key){
-  const g = GALLERIES[key];
-  if (!g) return;
-  activeGallery = g;
-  activeCat = "Semua";
-  logoEl.textContent = g.logo;
-  logoEl.style.background = g.accent;
-  titleEl.textContent = g.title;
-  subtitleEl.textContent = g.subtitle;
-  galleryGrid.style.setProperty("--shot-aspect", g.aspect);
-  galleryGrid.style.setProperty("--shot-basis", g.basis);
-  galleryModal.setAttribute("aria-label", "Galeri desain " + g.title);
-  galleryModal.classList.add("open");
-  galleryModal.setAttribute("aria-hidden","false");
-  document.body.style.overflow = "hidden";
-  renderTabs();
-  renderGrid();
-  galleryGrid.scrollTop = 0;
-  galleryTabs.scrollLeft = 0;
-}
-function closeGallery(){
-  closeLightbox();
-  galleryModal.classList.remove("open");
-  galleryModal.setAttribute("aria-hidden","true");
-  document.body.style.overflow = "";
-}
+    function renderTabs() {
+      galleryTabs.innerHTML = "";
+      activeGallery.cats.forEach((cat) => {
+        const n = cat === "Semua" ? activeGallery.screens.length : activeGallery.screens.filter(s => s.cat === cat).length;
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "pos-tab" + (cat === activeCat ? " active" : "");
+        b.setAttribute("role", "tab");
+        b.setAttribute("aria-selected", String(cat === activeCat));
+        b.textContent = cat;
+        const count = document.createElement("span");
+        count.className = "count";
+        count.textContent = String(n);
+        b.appendChild(count);
+        b.addEventListener("click", () => { activeCat = cat; renderTabs(); renderGrid(); });
+        galleryTabs.appendChild(b);
+      });
+    }
 
-["posProject","dtkProject"].forEach((id) => {
-  const key = id === "posProject" ? "pos" : "dtk";
-  const el = document.getElementById(id);
-  el.addEventListener("click", () => openGallery(key));
-  el.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openGallery(key); }
-  });
-});
+    function renderGrid() {
+      visibleShots = activeCat === "Semua" ? activeGallery.screens.slice() : activeGallery.screens.filter(s => s.cat === activeCat);
+      galleryGrid.innerHTML = "";
+      visibleShots.forEach((shot, i) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "pos-shot";
+        btn.style.animationDelay = Math.min(i * 45, 360) + "ms";
+        btn.setAttribute("aria-label", "Perbesar " + shot.title);
 
-galleryModal.querySelectorAll("[data-close]").forEach(el => el.addEventListener("click", closeGallery));
-lbClose.addEventListener("click", closeLightbox);
-lbNavPrev.addEventListener("click", () => stepLightbox(-1));
-lbNavNext.addEventListener("click", () => stepLightbox(1));
-galleryLightbox.addEventListener("click", (e) => { if (e.target === galleryLightbox) closeLightbox(); });
+        const img = document.createElement("img");
+        img.src = shot.src;
+        img.alt = shot.title;
+        img.loading = "lazy";
+        img.decoding = "async";
 
-document.addEventListener("keydown", (e) => {
-  if (!isOpen()) return;
-  if (e.key === "Escape"){ e.preventDefault(); galleryLightbox.classList.contains("open") ? closeLightbox() : closeGallery(); }
-  if (galleryLightbox.classList.contains("open")){
-    if (e.key === "ArrowRight"){ e.preventDefault(); stepLightbox(1); }
-    if (e.key === "ArrowLeft"){ e.preventDefault(); stepLightbox(-1); }
-  }
-});
+        const cap = document.createElement("span");
+        cap.className = "pos-shot-cap";
+        cap.textContent = shot.cat;
 
-/* ===== Lazy video facades (load Drive player only on demand) ===== */
-function playFunVideo(poster){
-  if (!poster || poster.dataset.played) return;
-  poster.dataset.played = "1";
-  const frame = document.createElement("iframe");
-  frame.src = poster.dataset.embed + "?autoplay=1";
-  frame.title = poster.dataset.title || "Video demo";
-  frame.allow = "autoplay; encrypted-media; fullscreen";
-  frame.allowFullscreen = true;
-  frame.loading = "lazy";
-  poster.replaceWith(frame);
-}
-document.querySelectorAll(".fun-poster").forEach((poster) => {
-  poster.addEventListener("click", () => playFunVideo(poster));
-  poster.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); playFunVideo(poster); }
-  });
-});
+        btn.append(img, cap);
+        btn.addEventListener("click", () => openLightbox(i));
+        galleryGrid.appendChild(btn);
+      });
+    }
 
-/* ===== Contact form (mailto) ===== */
-const form = document.getElementById("contactForm");
-const statusEl = document.getElementById("formStatus");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const nama = form.nama.value.trim();
-  const email = form.email.value.trim();
-  const subjek = form.subjek.value.trim();
-  const pesan = form.pesan.value.trim();
-  if (!nama || !email || !subjek || !pesan){ statusEl.textContent = "Mohon lengkapi semua kolom terlebih dahulu."; return; }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ statusEl.textContent = "Alamat email belum valid."; return; }
-  const subject = encodeURIComponent(subjek);
-  const body = encodeURIComponent(`Nama: ${nama}\nEmail: ${email}\n\n${pesan}`);
-  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-  statusEl.textContent = "Membuka aplikasi email Anda...";
-  setTimeout(() => form.reset(), 600);
-});
-</script>
+    function openLightbox(i) {
+      lbIndex = i;
+      updateLightbox();
+      if (!galleryLightbox.open) galleryLightbox.showModal();
+    }
+
+    function updateLightbox() {
+      const shot = visibleShots[lbIndex];
+      if (!shot) return;
+      lbImg.src = shot.src;
+      lbImg.alt = shot.title;
+      lbCap.textContent = shot.title;
+      lbCount.textContent = (lbIndex + 1) + " / " + visibleShots.length;
+    }
+
+    function stepLightbox(dir) {
+      if (!visibleShots.length) return;
+      lbIndex = (lbIndex + dir + visibleShots.length) % visibleShots.length;
+      updateLightbox();
+    }
+
+    function openGallery(key) {
+      const g = GALLERIES[key];
+      if (!g) return;
+      activeGallery = g;
+      activeCat = "Semua";
+      logoEl.textContent = g.logo;
+      logoEl.style.background = g.accent;
+      titleEl.textContent = g.title;
+      subtitleEl.textContent = g.subtitle;
+      galleryGrid.style.setProperty("--shot-aspect", g.aspect);
+      galleryGrid.style.setProperty("--shot-basis", g.basis);
+      renderTabs();
+      renderGrid();
+      if (!galleryModal.open) galleryModal.showModal();
+      galleryGrid.scrollTop = 0;
+      galleryTabs.scrollLeft = 0;
+    }
+
+    document.getElementById("posProject").addEventListener("click", () => openGallery("pos"));
+    document.getElementById("dtkProject").addEventListener("click", () => openGallery("dtk"));
+
+    modalCloseBtn.addEventListener("click", () => galleryModal.close());
+    lbCloseBtn.addEventListener("click", () => galleryLightbox.close());
+    lbNavPrev.addEventListener("click", () => stepLightbox(-1));
+    lbNavNext.addEventListener("click", () => stepLightbox(1));
+
+    /* Fallback light dismiss untuk browser yang belum mendukung <dialog closedby="any"> */
+    if (!("closedBy" in HTMLDialogElement.prototype)) {
+      const outside = (e, dialog) => {
+        const r = dialog.getBoundingClientRect();
+        return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+      };
+      for (const dialog of document.querySelectorAll('dialog[closedby="any"]')) {
+        let pressedOutside = false;
+        dialog.addEventListener("pointerdown", (e) => { pressedOutside = outside(e, dialog); });
+        dialog.addEventListener("pointerup", (e) => { if (pressedOutside && outside(e, dialog)) dialog.close(); });
+      }
+    }
+
+    /* Light dismiss juga saat klik area kosong di sekitar gambar lightbox */
+    galleryLightbox.addEventListener("click", (e) => {
+      if (e.target === galleryLightbox) galleryLightbox.close();
+    });
+
+    galleryLightbox.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") { e.preventDefault(); stepLightbox(1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); stepLightbox(-1); }
+    });
+
+    /* ===== Lazy video facades (load Drive player only on demand) ===== */
+    function playFunVideo(btn) {
+      if (!btn || btn.dataset.played) return;
+      btn.dataset.played = "1";
+      const frame = document.createElement("iframe");
+      frame.src = btn.dataset.embed + "?autoplay=1";
+      frame.title = btn.dataset.title || "Video demo";
+      frame.allow = "autoplay; encrypted-media; fullscreen";
+      frame.allowFullscreen = true;
+      frame.loading = "lazy";
+      btn.replaceWith(frame);
+    }
+    document.querySelectorAll(".fun-poster-btn").forEach((btn) => {
+      btn.addEventListener("click", () => playFunVideo(btn));
+    });
+
+    /* ===== Copy email button ===== */
+    const copyEmailBtn = document.getElementById("copyEmailBtn");
+    const copyPill = document.getElementById("copyPill");
+    let copyTimer;
+    copyEmailBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(CONTACT_EMAIL);
+        copyPill.textContent = "Tersalin!";
+      } catch {
+        window.location.href = `mailto:${CONTACT_EMAIL}`;
+        copyPill.textContent = "Membuka email...";
+      }
+      clearTimeout(copyTimer);
+      copyTimer = setTimeout(() => { copyPill.textContent = "Salin email"; }, 2200);
+    });
+
+    /* ===== Contact form (mailto + validasi aksesibel) ===== */
+    const form = document.getElementById("contactForm");
+    const statusEl = document.getElementById("formStatus");
+    const fields = [form.nama, form.email, form.subjek, form.pesan];
+
+    fields.forEach((field) => {
+      field.addEventListener("input", () => {
+        if (field.getAttribute("aria-invalid") === "true") {
+          field.removeAttribute("aria-invalid");
+        }
+        if (statusEl.classList.contains("is-error")) {
+          statusEl.textContent = "";
+          statusEl.classList.remove("is-error");
+        }
+      });
+    });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      fields.forEach((f) => f.removeAttribute("aria-invalid"));
+      statusEl.classList.remove("is-error");
+
+      const nama = form.nama.value.trim();
+      const email = form.email.value.trim();
+      const subjek = form.subjek.value.trim();
+      const pesan = form.pesan.value.trim();
+
+      const emptyField = [
+        [form.nama, nama],
+        [form.email, email],
+        [form.subjek, subjek],
+        [form.pesan, pesan]
+      ].find(([, val]) => !val);
+
+      if (emptyField) {
+        emptyField[0].setAttribute("aria-invalid", "true");
+        statusEl.textContent = "Mohon lengkapi semua kolom terlebih dahulu.";
+        statusEl.classList.add("is-error");
+        emptyField[0].focus();
+        return;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        form.email.setAttribute("aria-invalid", "true");
+        statusEl.textContent = "Format alamat email belum valid.";
+        statusEl.classList.add("is-error");
+        form.email.focus();
+        return;
+      }
+
+      const subject = encodeURIComponent(subjek);
+      const body = encodeURIComponent(`Nama: ${nama}\nEmail: ${email}\n\n${pesan}`);
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+      statusEl.textContent = "Membuka aplikasi email Anda...";
+      setTimeout(() => {
+        form.reset();
+        fields.forEach((f) => f.removeAttribute("aria-invalid"));
+      }, 600);
+    });
+  </script>
 </body>
+
 </html>
